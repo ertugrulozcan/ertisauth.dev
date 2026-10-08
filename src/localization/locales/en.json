@@ -1,0 +1,392 @@
+{
+	"meta": {
+		"title": "ErtisAuth: Open Source Identity and Access Management API",
+		"description": "Lightweight, self-hosted identity and access management: multi-tenant memberships, JWT tokens, fine-grained permissions and .NET SDK."
+	},
+	"nav": {
+		"features": "Features",
+		"permissions": "Permissions",
+		"security": "Security",
+		"developers": "Developers",
+		"compare": "Compare",
+		"docs": "Docs",
+		"github": "GitHub",
+		"menu": "Menu",
+		"close": "Close"
+	},
+	"theme": {
+		"label": "Theme",
+		"light": "Light",
+		"dark": "Dark",
+		"system": "System"
+	},
+	"language": {
+		"label": "Language"
+	},
+	"hero": {
+		"badge": "Open source · MIT · .NET 10",
+		"title": "Identity and Access Management",
+		"subtitle": "The right identity, the right access, stronger security",
+		"description": "ErtisAuth, delivers centralized, scalable, and secure identity and access management across your entire application ecosystem. From web and native applications to mobile apps and APIs, manage authentication, authorization, tokens, memberships, roles, granular & flexible permissions, dynamic user type management and OAuth integrations from a single platform.",
+		"primary": "Get started",
+		"secondary": "View on GitHub",
+		"terminalTitle": "Sign in and get a token",
+		"diagram": {
+			"label": "How ErtisAuth fits in: applications send requests to ErtisAuth and get tokens back, and ErtisAuth keeps its data in database",
+			"web": "Web app",
+			"mobile": "Mobile app",
+			"tv": "Smart TV",
+			"backend": "Backend service",
+			"database": "Database",
+			"request": "Request",
+			"token": "Token"
+		}
+	},
+	"highlights": {
+		"lightweight": {
+			"title": "Lightweight",
+			"text": "One service, one database. No JVM, no separate admin server, no SQL migrations."
+		},
+		"apiFirst": {
+			"title": "API first",
+			"text": "Memberships, users, roles, providers and hooks are managed through the same REST API that issues the tokens."
+		},
+		"multiTenant": {
+			"title": "Multi-tenant",
+			"text": "Each membership operates as a fully isolated environment, allowing you to securely manage multiple channels and product ecosystems under a single service—without compromising separation or security."
+		},
+		"open": {
+			"title": "Free and open",
+			"text": "MIT licensed. No per-user pricing, no feature tiers, your data stays in your database."
+		}
+	},
+	"features": {
+		"eyebrow": "Features",
+		"title": "Everything an identity service needs",
+		"description": "From the first sign-in to webhooks on every event, ErtisAuth covers the whole account lifecycle.",
+		"items": {
+			"tokens": {
+				"title": "Tokens and sessions",
+				"text": "JWT bearer tokens for users and Basic tokens for applications, refresh tokens that are single-use by default, revocation per session or for all devices, and scoped tokens limited to a subset of permissions."
+			},
+			"memberships": {
+				"title": "Memberships",
+				"text": "Isolated tenants, each with its own users, roles, applications, secret key, token lifetimes and mail settings."
+			},
+			"permissions": {
+				"title": "RBAC and UBAC",
+				"text": "Roles with permissions and forbidden rules, plus per-user and per-application overrides. The same model protects your own APIs."
+			},
+			"providers": {
+				"title": "External providers",
+				"text": "Sign in with Google, Apple (web and native), Facebook and Microsoft. Provider tokens are validated on the server, never trusted from the client."
+			},
+			"userTypes": {
+				"title": "Dynamic user types",
+				"text": "Define custom user fields with a JSON schema at runtime: validation, default values, unique fields and inheritance, without changing code."
+			},
+			"devices": {
+				"title": "Device sign-in",
+				"text": "A code flow for smart TVs, kiosks and CLI tools: the device shows a short code, a signed-in user approves it, the device gets a token."
+			},
+			"lifecycle": {
+				"title": "Account lifecycle",
+				"text": "Email activation, password reset with single-use tokens, one-time passwords, and freezing an account to revoke all of its tokens at once."
+			},
+			"passwords": {
+				"title": "Modern password hashing",
+				"text": "Argon2id and PBKDF2, chosen per membership. Legacy algorithms are still supported, so existing user databases can be imported."
+			},
+			"events": {
+				"title": "Events and hooks",
+				"text": "Every operation is recorded as an event. Webhooks call your endpoints from a background queue, and mail hooks send templated emails."
+			},
+			"operations": {
+				"title": "Ready for production",
+				"text": "OpenAPI reference with Scalar, Prometheus metrics, Application Insights, health checks and a Docker image that runs as a non-root user."
+			}
+		},
+		"device": {
+			"approve": "Approve",
+			"approved": "Approved",
+			"signedIn": "Signed in"
+		},
+		"passwords": {
+			"supported-algorithms": "Supported algorithms"
+		}
+	},
+	"permissions": {
+		"eyebrow": "Permission model",
+		"title": "Four segments, any resource",
+		"description": "A permission is an expression that names who may do what on which resource. Wildcards and shorter forms keep roles short, and the same expressions protect your own services.",
+		"segments": {
+			"subject": "Who performs the action: a user or application id",
+			"resource": "The type of resource, e.g. users or orders",
+			"action": "create, read, update, delete or a custom action",
+			"object": "The id of a single resource"
+		},
+		"orderTitle": "How a request is decided",
+		"order": {
+			"ubac": "A matching user or application permission decides first, whether it grants or forbids.",
+			"role": "Otherwise the role decides, and a forbidden rule of the role always wins.",
+			"self": "Users may still read and update their own record, unless the role forbids it.",
+			"scopes": "A scoped token must also cover the request with its scopes."
+		},
+		"demo": {
+			"scenarios": "Example requests",
+			"request": "Request",
+			"user": "User",
+			"role": "Role",
+			"required": "Required permission",
+			"userRules": "User permissions",
+			"roleRules": "Role permissions",
+			"allows": "allows",
+			"denies": "denies",
+			"noMatch": "no match",
+			"notReached": "not reached",
+			"allowed": "Allowed",
+			"denied": "Denied"
+		}
+	},
+	"security": {
+		"eyebrow": "Security",
+		"title": "Secure defaults, built in",
+		"description": "An identity service is only as safe as its defaults. These protections are part of ErtisAuth and on from the start, with nothing to switch on.",
+		"groups": {
+			"authentication": {
+				"title": "Authentication",
+				"items": {
+					"hashing": "Argon2id or PBKDF2 password hashing, chosen per membership",
+					"providers": "Provider tokens are checked with the provider on the server, and an unverified email never links an existing account",
+					"refresh": "Refresh tokens are single-use by default",
+					"sessions": "Changing a password signs the user out on every other device"
+				}
+			},
+			"isolation": {
+				"title": "Isolation",
+				"items": {
+					"memberships": "A token of one membership is rejected by every other membership",
+					"roles": "Users and applications without a role are denied, never allowed by default",
+					"scopes": "Scoped tokens can't reach beyond their scopes",
+					"secretKey": "Each membership signs its tokens with its own secret key of at least 32 bytes",
+					"queires": "All queries run solely within an isolated space specific to their own membership."
+				}
+			},
+			"data": {
+				"title": "Data and queries",
+				"items": {
+					"operators": "Queries can't run server-side JavaScript ($where, $function)",
+					"hidden": "Password hashes and secrets can't be read, filtered or sorted on",
+					"errors": "Unexpected errors return a generic message; the details stay in the logs",
+					"events": "Event records and webhooks don't carry tokens or secrets"
+				}
+			},
+			"codes": {
+				"title": "Codes and secrets",
+				"items": {
+					"random": "One-time passwords and device codes come from a cryptographically secure generator",
+					"otp": "One-time passwords are single-use and limited in attempts",
+					"devices": "Device sign-in keeps the polling secret apart from the code the user types, and stores it hashed",
+					"applications": "Each application has its own secret, which can be rotated"
+				}
+			}
+		},
+		"yourPart": {
+			"title": "Your part",
+			"text": "TLS, rate limiting on public endpoints and network access to MongoDB belong to your gateway and infrastructure.",
+			"guide": "Operations guide"
+		},
+		"report": "Report a vulnerability"
+	},
+	"developers": {
+		"eyebrow": "For .NET developers",
+		"title": "Protect your APIs with attributes",
+		"description": "ErtisAuth.Sdk is a typed client for the ErtisAuth API. ErtisAuth.Sdk.AspNetCore adds authentication and permission checks to your own ASP.NET Core services.",
+		"points": {
+			"attributes": "Declare the resource, action and object with attributes; placeholders read route values, query parameters, headers and environment variables.",
+			"analyzer": "A bundled Roslyn analyzer reports invalid permission attributes at compile time.",
+			"anyLanguage": "Not on .NET? Every feature is a REST endpoint, so services in any language can verify tokens and check permissions."
+		},
+		"tabs": {
+			"controller": "OrdersController.cs",
+			"program": "Program.cs",
+			"settings": "appsettings.json"
+		},
+		"comment": "Reached only when the caller's token grants *.orders.read.'{id}'",
+		"packages": {
+			"title": "NuGet packages",
+			"version": "Version",
+			"nuget": "NuGet",
+			"client": "A typed .NET client for the ErtisAuth API",
+			"aspnetcore": "Authentication and permission checks for your ASP.NET Core services"
+		}
+	},
+	"compare": {
+		"eyebrow": "How it compares",
+		"title": "Somewhere between a library and a platform",
+		"description": "ErtisAuth is a central, ready-to-run server like the big platforms, but small enough to run next to your own services.",
+		"items": {
+			"keycloak": {
+				"name": "Keycloak",
+				"text": "A full-featured server, but a heavy Java application configured mostly through its admin console. ErtisAuth keeps the realm idea (memberships) in a small .NET service configured entirely through its API."
+			},
+			"hosted": {
+				"name": "Auth0, Okta and hosted services",
+				"text": "Managed for you, but paid per active user, and your user data lives on a third-party platform. ErtisAuth is self-hosted: the data stays in your MongoDB."
+			},
+			"duende": {
+				"name": "Duende IdentityServer",
+				"text": "A framework to build your own server with, and most companies need a commercial license. ErtisAuth is a ready-to-run server under the MIT license."
+			},
+			"identity": {
+				"name": "ASP.NET Core Identity",
+				"text": "A library embedded in each application. ErtisAuth is a central service: many applications, in any language, share the same users and permissions."
+			}
+		}
+	},
+	"start": {
+		"eyebrow": "Get started",
+		"title": "Running in a few minutes",
+		"description": "Start ErtisAuth and MongoDB with Docker Compose, create the first membership with the one-time setup endpoint, and sign in.",
+		"steps": {
+			"run": {
+				"title": "Start the containers",
+				"text": "From the root of the repository. The API listens on port 9716, the API reference is at /docs."
+			},
+			"setup": {
+				"title": "Set up the installation",
+				"text": "Insert a setup token into the database, then call /setup once to create the first membership, role and administrator."
+			},
+			"token": {
+				"title": "Get your first token",
+				"text": "Sign in with the administrator and use the access token on any endpoint."
+			}
+		},
+		"guide": "Read the full guide"
+	},
+	"cta": {
+		"title": "Contributing to the community",
+		"description": "ErtisAuth is free and open source under the MIT license. Star the repository, read the docs, or open an issue.",
+		"primary": "Star on GitHub",
+		"secondary": "Read the docs"
+	},
+	"footer": {
+		"tagline": "Identity and Access Management API",
+		"license": "MIT License",
+		"copyright": "© 2020–2026 | Ertuğrul Özcan"
+	},
+	"code": {
+		"copy": "Copy",
+		"copied": "Copied"
+	},
+	"notFound": {
+		"title": "Page not found",
+		"description": "The page you are looking for doesn't exist or has been moved.",
+		"home": "Back to home",
+		"docs": "Read the docs"
+	},
+	"docs": {
+		"title": "Documentation",
+		"description": "Guides and the REST API reference of ErtisAuth.",
+		"groups": {
+			"guides": "Guides",
+			"api": "API reference"
+		},
+		"home": "Overview",
+		"menu": "Documentation menu",
+		"onThisPage": "On this page",
+		"previous": "Previous",
+		"next": "Next",
+		"mistake": "Found a mistake in the docs?",
+		"openIssue": "Open an issue",
+		"note": "Note",
+		"warning": "Warning",
+		"anchor": "Link to this section",
+		"pages": {
+			"getting-started": {
+				"title": "Getting Started",
+				"description": "Install, configure and set up ErtisAuth, and get your first token."
+			},
+			"configuration": {
+				"title": "Configuration",
+				"description": "Every setting of the server."
+			},
+			"core-concepts": {
+				"title": "Core Concepts",
+				"description": "Memberships, users, user types, roles, applications and more."
+			},
+			"api-conventions": {
+				"title": "API Conventions",
+				"description": "Routes, headers, pagination, queries and errors."
+			},
+			"authentication": {
+				"title": "Authentication",
+				"description": "Tokens, sign-in, refresh, verification and sign-out."
+			},
+			"authorization": {
+				"title": "Authorization",
+				"description": "The RBAC and UBAC permission model."
+			},
+			"account-recovery": {
+				"title": "Account Recovery and Activation",
+				"description": "Activation mails, password reset and one-time passwords."
+			},
+			"device-code-flow": {
+				"title": "Device Code Flow",
+				"description": "Sign in on devices without a keyboard."
+			},
+			"external-providers": {
+				"title": "External Identity Providers",
+				"description": "Google, Apple, Facebook and Microsoft sign-in."
+			},
+			"sdk": {
+				"title": ".NET SDK",
+				"description": "The client SDK and the ASP.NET Core integration."
+			},
+			"operations": {
+				"title": "Operations",
+				"description": "Health checks, metrics, logging, indexes and a production checklist."
+			},
+			"memberships": {
+				"title": "Memberships",
+				"description": "Create and manage memberships, the isolated tenants of ErtisAuth."
+			},
+			"users": {
+				"title": "Users",
+				"description": "Create, query, update and manage users."
+			},
+			"user-types": {
+				"title": "User Types",
+				"description": "Define the custom fields of users with a JSON schema."
+			},
+			"roles": {
+				"title": "Roles",
+				"description": "Manage roles and their permissions."
+			},
+			"applications": {
+				"title": "Applications",
+				"description": "Machine clients and their secrets."
+			},
+			"sessions": {
+				"title": "Sessions",
+				"description": "Active tokens and revoked tokens."
+			},
+			"events": {
+				"title": "Events",
+				"description": "The event log of a membership."
+			},
+			"webhooks": {
+				"title": "Webhooks",
+				"description": "Call your endpoints when something happens."
+			},
+			"mail-hooks": {
+				"title": "Mail Hooks",
+				"description": "Send templated emails on events."
+			},
+			"error-codes": {
+				"title": "Error Codes",
+				"description": "Every error code the API returns."
+			}
+		}
+	}
+}

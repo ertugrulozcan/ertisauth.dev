@@ -1,0 +1,392 @@
+{
+	"meta": {
+		"title": "ErtisAuth: Açık Kaynak Kimlik ve Erişim Yönetim API",
+		"description": "Kendi sunucunuzda çalışan hafif kimlik ve erişim yönetimi: çok kiracılı membership'ler, JWT token'lar, ayrıntılı yetkiler ve .NET SDK."
+	},
+	"nav": {
+		"features": "Özellikler",
+		"permissions": "Yetkilendirme",
+		"security": "Güvenlik",
+		"developers": "Geliştiriciler",
+		"compare": "Karşılaştırma",
+		"docs": "Dokümantasyon",
+		"github": "GitHub",
+		"menu": "Menü",
+		"close": "Kapat"
+	},
+	"theme": {
+		"label": "Tema",
+		"light": "Açık",
+		"dark": "Koyu",
+		"system": "Sistem"
+	},
+	"language": {
+		"label": "Dil"
+	},
+	"hero": {
+		"badge": "Açık kaynak · MIT · .NET 10",
+		"title": "Kimlik ve Erişim Yönetimi",
+		"subtitle": "Doğru kimlik, doğru erişim, güçlü güvenlik",
+		"description": "ErtisAuth, platform farketmeksizin web, native, mobil, Web API gibi tüm uygulamalarınızda ve servislerinizde kimlik doğrulamak ve yetkilendirmek için merkezi, ölçeklenebilir, güvenli bir çözüm sunar. Token'lar, üyelik alanları, roller, ayrıntılı ve esnek yetki yönetimi, dinamik kullanıcı tür yönetimi, OAuth entegrasyonları; hepsi tek çatı altında.",
+		"primary": "Hemen başlayın",
+		"secondary": "GitHub'da inceleyin",
+		"terminalTitle": "Giriş yapın ve token alın",
+		"diagram": {
+			"label": "ErtisAuth'un yeri: servisler ve uygulamalar ErtisAuth üzerinden token alır, ErtisAuth da verilerini veritabanında saklar.",
+			"web": "Web uygulaması",
+			"mobile": "Mobil uygulama",
+			"tv": "Akıllı TV",
+			"backend": "Backend servisi",
+			"database": "Veritabanı",
+			"request": "İstek",
+			"token": "Token"
+		}
+	},
+	"highlights": {
+		"lightweight": {
+			"title": "Hafif",
+			"text": "Tek servis, tek veri tabanı. JVM yok, ayrı bir yönetim sunucusu yok, SQL migration'ları yok."
+		},
+		"apiFirst": {
+			"title": "API öncelikli",
+			"text": "Membership'ler, kullanıcılar, roller, sağlayıcılar ve hook'lar, token'ları üreten aynı REST API üzerinden yönetilir."
+		},
+		"multiTenant": {
+			"title": "Üyelik alanları",
+			"text": "Her membership izole bir alandır. Birden fazla mecrayı ve ürün ekosistemini tek servis altında güvenle birbirlerinden izole şekilde yönetebilirsiniz."
+		},
+		"open": {
+			"title": "Ücretsiz ve açık",
+			"text": "MIT lisanslı. Ücretsiz, herhangi bir kısıtlama olmadan; verileriniz kendi veritabanınızda kalır."
+		}
+	},
+	"features": {
+		"eyebrow": "Özellikler",
+		"title": "Bir kimlik servisinin ihtiyaç duyduğu her şey",
+		"description": "ErtisAuth, kimlik ve yetki yönetiminden olay tabanlı entegrasyonlara kadar hesap yaşam döngüsünün tamamını kapsar.",
+		"items": {
+			"tokens": {
+				"title": "Token'lar ve kullanıcı oturumları",
+				"text": "Kullanıcılar için JWT bearer, uygulamalar için Basic token'lar; varsayılan olarak tek kullanımlık refresh token'lar, oturum bazında ya da tüm cihazlarda iptal ve yetkilerin bir alt kümesiyle sınırlı scoped token'lar üretebilirsiniz."
+			},
+			"memberships": {
+				"title": "Membership'ler",
+				"text": "Birbirinden izole üyelik alanları; her birinin kendi kullanıcıları, rolleri, uygulamaları, gizli anahtarı, token süreleri ve mail ayarları vardır."
+			},
+			"permissions": {
+				"title": "RBAC ve UBAC",
+				"text": "İzin ve yasak kuralları içeren roller için RBAC (Role Based Access Control) ve üstüne kullanıcı ve uygulama bazında UBAC (User Based Access Control) istisnalar. Aynı model kendi API'lerinizi de korur."
+			},
+			"providers": {
+				"title": "Harici sağlayıcılar",
+				"text": "Google, Apple (web ve native), Facebook ve Microsoft ile giriş. Sağlayıcı token'ları sunucuda doğrulanır; istemciden gelen kimliğe asla tek başına güvenilmez."
+			},
+			"userTypes": {
+				"title": "Dinamik kullanıcı tipleri",
+				"text": "Kullanıcıların özel alanlarını çalışma zamanında JSON şemasıyla tanımlayarak kendi kullanıcı türlerinizi oluşturun. Doğrulama, varsayılan değerler, tekil alanlar, kalıtım, nesne ve dizi şablonları; üstelik kod değiştirmeden."
+			},
+			"devices": {
+				"title": "Cihazlarla giriş",
+				"text": "Akıllı TV'ler, kiosk'lar ve CLI araçları için güvenli kod akışı: cihaz kısa bir kod gösterir, giriş yapmış bir kullanıcı onaylar, cihaz token'ını alır."
+			},
+			"lifecycle": {
+				"title": "Hesap yaşam döngüsü",
+				"text": "E-posta ile aktivasyon, tek kullanımlık token'larla şifre sıfırlama, tek kullanımlık şifreler (OTP) hesap dondurma veya tüm token'larını tek seferde iptal etme."
+			},
+			"passwords": {
+				"title": "Modern şifre saklama",
+				"text": "Membership bazında seçilen Argon2id ve PBKDF2. Eski algoritmalar da desteklenir; mevcut kullanıcı veritabanları içeri aktarılabilir."
+			},
+			"events": {
+				"title": "Olaylar ve hook'lar",
+				"text": "Her işlem bir olay olarak kaydedilir. Webhook'lar arka plandaki bir kuyruktan endpoint'lerinizi çağırır, mail hook'lar ile SMTP sunucunuz üzerinden veya SendGrid, MailChimp gibi sağlayıcılar üzerinden hook postaları gönderebilirsiniz."
+			},
+			"operations": {
+				"title": "Production'a hazır",
+				"text": "Scalar ile OpenAPI referansı, Prometheus metrikleri, Application Insights monitoring, health check'ler ve root olmayan kullanıcıyla çalışan bir Docker imajı."
+			}
+		},
+		"device": {
+			"approve": "Onayla",
+			"approved": "Onaylandı",
+			"signedIn": "Giriş yapıldı"
+		},
+		"passwords": {
+			"supported-algorithms": "Desteklenen algoritmalar"
+		}
+	},
+	"permissions": {
+		"eyebrow": "Yetki modeli",
+		"title": "Dört bölüm, her kaynak",
+		"description": "RBAC, kimin hangi kaynak üzerinde ne yapabileceğini söyleyen bir ifadedir. Joker karakterler ve kısa yazımlar rolleri sade tutar; aynı ifadeler kendi servislerinizi de korur. Basit ve kapsayıcı.",
+		"segments": {
+			"subject": "İşlemi yapan: bir kullanıcı ya da uygulama id'si",
+			"resource": "Kaynağın türü, örneğin 'users' ya da 'orders'",
+			"action": "create, read, update, delete ya da özel bir işlem",
+			"object": "Tek bir belirli kaynağın id'si"
+		},
+		"orderTitle": "Bir istek nasıl yetkilendirilir?",
+		"order": {
+			"ubac": "Önce, eşleşen bir kullanıcı ya da uygulama için tanımlı bir yetki tanımı (izin veya yasak) olup olmadığı kontrol edilir.",
+			"role": "Yoksa kullanıcı ya da uygulamanın bağlı olduğu role göre karar verilir; rolün yasak kuralı her zaman kazanır.",
+			"self": "Rol yasaklamadıkça kullanıcılar kendi kayıtlarını okuyabilir ve güncelleyebilir.",
+			"scopes": "Sınırlı bir scoped token'ın scope'ları da isteği kapsamalıdır."
+		},
+		"demo": {
+			"scenarios": "Örnek",
+			"request": "İstek",
+			"user": "Kullanıcı",
+			"role": "Rol",
+			"required": "Gereken yetki",
+			"userRules": "Kullanıcı yetkileri",
+			"roleRules": "Rol yetkileri",
+			"allows": "izin verir",
+			"denies": "yasaklar",
+			"noMatch": "eşleşme yok",
+			"notReached": "kontrol edilmedi",
+			"allowed": "İzin verildi",
+			"denied": "Reddedildi"
+		}
+	},
+	"security": {
+		"eyebrow": "Güvenlik",
+		"title": "Yerleşik, güvenli varsayılanlar",
+		"description": "Bir kimlik servisi, varsayılan ayarları kadar güvenlidir. Bu korumalar ErtisAuth'ta her membership'in bir parçası ve ilk kurulumdan itibaren açık, ayrıca etkinleştirmeniz gereken bir şey yok.",
+		"groups": {
+			"authentication": {
+				"title": "Kimlik doğrulama",
+				"items": {
+					"hashing": "Membership bazında seçilen ARGON2ID ya da PBKDF2 ile şifre saklama, ayrıca legacy algoritmalar için destek",
+					"providers": "Sağlayıcı token'ları sunucuda sağlayıcıya doğrulatılır; doğrulanmamış bir e-posta mevcut bir hesaba asla bağlanmaz",
+					"refresh": "Refresh token'lar varsayılan olarak tek kullanımlıktır",
+					"sessions": "Şifre değişince kullanıcının diğer tüm cihazlardaki oturumları kapanır"
+				}
+			},
+			"isolation": {
+				"title": "İzolasyon",
+				"items": {
+					"memberships": "Bir membership'in token'ı diğer tüm membership'lerde reddedilir",
+					"roles": "Rolü olmayan kullanıcı ve uygulamalar reddedilir; varsayılan olarak asla izin verilmez",
+					"scopes": "Scoped token'lar kendi scope'larının dışına çıkamaz",
+					"secretKey": "Her membership token'larını en az 32 baytlık kendi gizli anahtarıyla imzalar",
+					"queires": "Tüm sorgular yalnızca kendi membership'i üzerindeki izole alanda çalışır"
+				}
+			},
+			"data": {
+				"title": "Veri ve sorgular",
+				"items": {
+					"operators": "Sorgular için script ve enjeksiyon koruması",
+					"hidden": "Şifre hash'leri ve secret'lar okunamaz, bunlara göre filtrelenemez ya da sıralanamaz",
+					"errors": "Beklenmeyen hatalar genel bir mesaj döner; ayrıntılar log'larda kalır",
+					"events": "Olay kayıtları ve webhook'lar token ya da secret taşımaz"
+				}
+			},
+			"codes": {
+				"title": "Kodlar ve secret'lar",
+				"items": {
+					"random": "Tek kullanımlık şifreler ve cihaz kodları güvenli kriptografik süreçlerde üretilir",
+					"otp": "Tek kullanımlık şifreler tam anlamıyla tek kullanımlıktır ve deneme sayısı kontrolü uygulanır",
+					"devices": "Cihazla girişte, cihazın sorgularken kullandığı gizli kod, kullanıcının girdiği koddan ayrı tutulur ve hash'lenerek saklanır",
+					"applications": "Her uygulamanın kendine ait tekil bir secret'ı vardır"
+				}
+			}
+		},
+		"yourPart": {
+			"title": "ErtisAuth'un sorumluluğunda olmayan konular",
+			"text": "TLS, açık endpoint'lerde rate limiting ve ağ erişimi, gateway'inizin ve altyapınızın sorumluluğundadır.",
+			"guide": "Operasyon rehberi"
+		},
+		"report": "Güvenlik açığı bildirin"
+	},
+	"developers": {
+		"eyebrow": ".NET geliştiricileri için",
+		"title": "ErtisAuth SDK. Uygulamalarınızı ve API'lerinizi entegre etmenin en kolay yolu",
+		"description": "ErtisAuth.Sdk, ErtisAuth API'si için tipli bir istemcidir. ErtisAuth.Sdk.AspNetCore ise kendi ASP.NET Core servislerinize sadece birkaç basit adımda kimlik doğrulama ve yetki kontrolü ekler.",
+		"points": {
+			"attributes": "Kaynağı, işlemi ve nesneyi attribute'larla tanımlayın; placeholder'lar route değerlerini, query parametrelerini, header'ları ve ortam değişkenlerini okuyabilir.",
+			"analyzer": "Pakete dahil Roslyn analyzer'ı ile hatalı yetki attribute'larını derleme sırasında farkedin.",
+			"anyLanguage": ".NET kullanmıyor musunuz? Sorun değil, ErtisAuth'taki her özellik bir REST endpoint'i; tüm dillerde ve platformlardaki tüm uygulamalarınızda HTTP üzerinden kimlik doğrulayabilir ve yetki kontrol edebilirsiniz."
+		},
+		"tabs": {
+			"controller": "OrdersController.cs",
+			"program": "Program.cs",
+			"settings": "appsettings.json"
+		},
+		"comment": "Yalnızca çağıranın token'ı *.orders.read.'{id}' yetkisini veriyorsa buraya ulaşılır",
+		"packages": {
+			"title": "NuGet paketleri",
+			"version": "Sürüm",
+			"nuget": "NuGet",
+			"client": "ErtisAuth API'si için tipli bir .NET istemcisi",
+			"aspnetcore": "ASP.NET Core servisleriniz için kimlik doğrulama ve yetki kontrolü"
+		}
+	},
+	"compare": {
+		"eyebrow": "Karşılaştırma",
+		"title": "Bir kütüphane ile bir platform arasında",
+		"description": "ErtisAuth, büyük platformlar gibi merkezi ve kurulduğu gibi çalışan bir sunucudur; ama kendi servislerinizin yanında çalışacak kadar hafiftir.",
+		"items": {
+			"keycloak": {
+				"name": "Keycloak",
+				"text": "Kapsamlı bir sunucu ama ağır bir Java uygulaması ve ayarlarının çoğu yönetim konsolunda. ErtisAuth realm fikrini (membership'ler) korur ve tamamen API üzerinden yönetilen küçük bir .NET servisi olarak sunar."
+			},
+			"hosted": {
+				"name": "Auth0, Okta ve barındırılan servisler",
+				"text": "Sizin yerinize yönetilir, ama aktif kullanıcı başına ücretlendirilir ve kullanıcı verileriniz üçüncü bir platformda durur. ErtisAuth kendi sunucunuzda çalışır: veriler veritabanınızda kalır."
+			},
+			"duende": {
+				"name": "Duende IdentityServer",
+				"text": "Kendi sunucunuzu yazmanız için bir framework ve çoğu şirket için ticari lisans gerektirir. ErtisAuth, MIT lisanslı ve kurulduğu gibi çalışan bir sunucudur."
+			},
+			"identity": {
+				"name": "ASP.NET Core Identity",
+				"text": "Her uygulamaya gömülen bir kütüphane. ErtisAuth ise merkezi bir servistir: farklı dillerde yazılmış pek çok uygulama aynı kullanıcıları ve yetkileri dağıtık bir yapıda paylaşabilir."
+			}
+		}
+	},
+	"start": {
+		"eyebrow": "Başlangıç",
+		"title": "Birkaç dakikada çalışır halde",
+		"description": "ErtisAuth'u ve MongoDB'yi Docker Compose ile başlatın, tek seferlik setup endpoint'iyle ilk membership'i oluşturun ve giriş yapın.",
+		"steps": {
+			"run": {
+				"title": "Container'ları başlatın",
+				"text": "Repo'nun kök dizininden. API varsayılan olarak 9716 portunda çalışır, API referansı /docs adresindedir."
+			},
+			"setup": {
+				"title": "Kurulumu yapın",
+				"text": "Veritabanına bir setup token'ı ekleyin, ardından ilk membership'i, rolü ve yöneticiyi oluşturmak için /setup'ı bir kez çağırın."
+			},
+			"token": {
+				"title": "İlk token'ınızı alın",
+				"text": "Yönetici kullanıcıyla giriş yapın ve access token'ı herhangi bir endpoint'te kullanın."
+			}
+		},
+		"guide": "Rehberin tamamını okuyun"
+	},
+	"cta": {
+		"title": "Topluluğa katkı sağlama",
+		"description": "ErtisAuth, MIT lisansıyla ücretsiz ve açık kaynaklı bir özgür yazılım projesidir. Repo'ya yıldız verin, dokümantasyonu okuyun ya da bir issue açın.",
+		"primary": "GitHub'da yıldız verin",
+		"secondary": "Dokümantasyonu okuyun"
+	},
+	"footer": {
+		"tagline": "Kimlik ve Yetki Denetim API",
+		"license": "MIT Lisansı",
+		"copyright": "© 2020–2026 | Ertuğrul Özcan"
+	},
+	"code": {
+		"copy": "Kopyala",
+		"copied": "Kopyalandı"
+	},
+	"notFound": {
+		"title": "Sayfa bulunamadı",
+		"description": "Aradığınız sayfa mevcut değil ya da taşınmış.",
+		"home": "Ana sayfaya dön",
+		"docs": "Dokümantasyonu okuyun"
+	},
+	"docs": {
+		"title": "Dokümantasyon",
+		"description": "ErtisAuth kullanım kılavuzu ve REST API referansı.",
+		"groups": {
+			"guides": "Rehberler",
+			"api": "API referansı"
+		},
+		"home": "Genel bakış",
+		"menu": "Dokümantasyon menüsü",
+		"onThisPage": "Bu sayfada",
+		"previous": "Önceki",
+		"next": "Sonraki",
+		"mistake": "Dokümantasyonda bir hata mı buldunuz?",
+		"openIssue": "Issue açın",
+		"note": "Not",
+		"warning": "Uyarı",
+		"anchor": "Bu bölümün bağlantısı",
+		"pages": {
+			"getting-started": {
+				"title": "Başlangıç",
+				"description": "ErtisAuth'u kurun, yapılandırın ve ilk token'ınızı alın."
+			},
+			"configuration": {
+				"title": "Yapılandırma",
+				"description": "Sunucunun tüm ayarları."
+			},
+			"core-concepts": {
+				"title": "Temel Kavramlar",
+				"description": "Membership'ler, kullanıcılar, kullanıcı tipleri, roller, uygulamalar ve dahası."
+			},
+			"api-conventions": {
+				"title": "API Kuralları",
+				"description": "Route'lar, header'lar, sayfalama, sorgular ve hatalar."
+			},
+			"authentication": {
+				"title": "Kimlik Doğrulama",
+				"description": "Token'lar, giriş, yenileme, doğrulama ve çıkış."
+			},
+			"authorization": {
+				"title": "Yetkilendirme",
+				"description": "RBAC ve UBAC yetki modeli."
+			},
+			"account-recovery": {
+				"title": "Hesap Kurtarma ve Aktivasyon",
+				"description": "Aktivasyon e-postaları, şifre sıfırlama ve tek kullanımlık şifreler."
+			},
+			"device-code-flow": {
+				"title": "Cihaz Kodu Akışı",
+				"description": "Klavyesi olmayan cihazlarda giriş."
+			},
+			"external-providers": {
+				"title": "Harici Kimlik Sağlayıcılar",
+				"description": "Google, Apple, Facebook ve Microsoft ile giriş."
+			},
+			"sdk": {
+				"title": ".NET SDK",
+				"description": "İstemci SDK'sı ve ASP.NET Core entegrasyonu."
+			},
+			"operations": {
+				"title": "Operasyon",
+				"description": "Health check'ler, metrikler, loglama, index'ler ve production kontrol listesi."
+			},
+			"memberships": {
+				"title": "Membership'ler",
+				"description": "ErtisAuth'un izole kiracıları olan membership'leri oluşturun ve yönetin."
+			},
+			"users": {
+				"title": "Kullanıcılar",
+				"description": "Kullanıcıları oluşturun, sorgulayın, güncelleyin ve yönetin."
+			},
+			"user-types": {
+				"title": "Kullanıcı Tipleri",
+				"description": "Kullanıcıların özel alanlarını JSON şemasıyla tanımlayın."
+			},
+			"roles": {
+				"title": "Roller",
+				"description": "Rolleri ve yetkilerini yönetin."
+			},
+			"applications": {
+				"title": "Uygulamalar",
+				"description": "Makine istemcileri ve secret'ları."
+			},
+			"sessions": {
+				"title": "Oturumlar",
+				"description": "Aktif token'lar ve iptal edilmiş token'lar."
+			},
+			"events": {
+				"title": "Olaylar",
+				"description": "Bir membership'in olay kaydı."
+			},
+			"webhooks": {
+				"title": "Webhook'lar",
+				"description": "Bir şey olduğunda endpoint'lerinizi çağırın."
+			},
+			"mail-hooks": {
+				"title": "Mail Hook'lar",
+				"description": "Olaylarda şablonlu e-postalar gönderin."
+			},
+			"error-codes": {
+				"title": "Hata Kodları",
+				"description": "API'nin döndürdüğü tüm hata kodları."
+			}
+		}
+	}
+}
