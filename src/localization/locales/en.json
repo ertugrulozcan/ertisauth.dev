@@ -30,6 +30,7 @@
 		"description": "ErtisAuth, delivers centralized, scalable, and secure identity and access management across your entire application ecosystem. From web and native applications to mobile apps and APIs, manage authentication, authorization, tokens, memberships, roles, granular & flexible permissions, dynamic user type management and OAuth integrations from a single platform.",
 		"primary": "Get started",
 		"secondary": "View on GitHub",
+		"documentation": "Documentation",
 		"terminalTitle": "Sign in and get a token",
 		"diagram": {
 			"label": "How ErtisAuth fits in: applications send requests to ErtisAuth and get tokens back, and ErtisAuth keeps its data in database",

@@ -30,6 +30,7 @@
 		"description": "ErtisAuth, platform farketmeksizin web, native, mobil, Web API gibi tüm uygulamalarınızda ve servislerinizde kimlik doğrulamak ve yetkilendirmek için merkezi, ölçeklenebilir, güvenli bir çözüm sunar. Token'lar, üyelik alanları, roller, ayrıntılı ve esnek yetki yönetimi, dinamik kullanıcı tür yönetimi, OAuth entegrasyonları; hepsi tek çatı altında.",
 		"primary": "Hemen başlayın",
 		"secondary": "GitHub'da inceleyin",
+		"documentation": "Dokümantasyon",
 		"terminalTitle": "Giriş yapın ve token alın",
 		"diagram": {
 			"label": "ErtisAuth'un yeri: servisler ve uygulamalar ErtisAuth üzerinden token alır, ErtisAuth da verilerini veritabanında saklar.",

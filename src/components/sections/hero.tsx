@@ -1,15 +1,16 @@
 "use client"
 
 import clsx from "clsx"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, BookOpen } from "lucide-react"
 import { GitHubIcon } from "@/components/icons/github-icon"
 import { Reveal } from "@/components/layout/reveal"
 import { FlowDiagram } from "./flow-diagram"
-import { useTranslations } from "next-intl"
+import { useLocale, useTranslations } from "next-intl"
 import { links } from "@/lib/site"
 
 export function Hero() {
 	const t = useTranslations("hero")
+	const locale = useLocale()
 
 	return (
 		<section id="top" className="relative overflow-hidden px-5 pt-24 pb-20 sm:px-6 sm:pt-32 sm:pb-28">
@@ -36,20 +37,20 @@ export function Hero() {
 						<span className="caret text-accent-2 text-3xl ml-1">{"_"}</span>
 					</div>
 
-					<p className="text-base leading-relaxed text-pretty text-muted sm:text-lg max-w-2xl mx-auto mt-6">
+					<p className="text-base leading-relaxed text-pretty text-muted sm:text-lg max-w-2xl mx-auto mt-7">
 						{t("description")}
 					</p>
 
-					<div className="flex flex-col items-center justify-center gap-x-3 gap-y-4 sm:flex-row mt-9">
+					<div className="flex flex-col items-center justify-center gap-x-3 gap-y-5 sm:flex-row mt-9 sm:mt-12">
 						<a
 							href="#get-started"
 							className={clsx(
 								"inline-flex items-center gap-2",
 								"bg-fg",
 								"rounded-full focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent",
-								"text-sm font-medium text-bg",
+								"text-base sm:text-sm font-medium text-bg",
 								"group transition-opacity hover:opacity-90",
-								"h-11 px-6",
+								"h-12 sm:h-11 px-7 sm:px-6",
 							)}>
 							{t("primary")}
 							<ArrowRight className="transition-transform group-hover:translate-x-0.5 size-4" />
@@ -60,12 +61,25 @@ export function Hero() {
 								"inline-flex items-center gap-2",
 								"bg-surface",
 								"rounded-full border border-border hover:border-border-strong focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent",
-								"text-sm font-medium",
+								"text-base sm:text-sm font-medium",
 								"transition-colors",
-								"h-11 px-6",
+								"h-12 sm:h-11 px-7 sm:px-6",
 							)}>
 							<GitHubIcon className="size-4" />
 							{t("secondary")}
+						</a>
+						<a
+							href={`/${locale}/docs/`}
+							className={clsx(
+								"inline-flex items-center gap-2",
+								"bg-bg",
+								"rounded-full border border-border hover:border-border-strong focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent",
+								"text-base sm:text-sm font-medium",
+								"transition-colors",
+								"h-12 sm:h-11 px-7 sm:px-6",
+							)}>
+							<BookOpen className="size-4" />
+							{t("documentation")}
 						</a>
 					</div>
 				</div>
