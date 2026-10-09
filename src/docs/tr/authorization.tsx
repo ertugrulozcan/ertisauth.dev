@@ -189,31 +189,124 @@ export default function Authorization() {
 			<Table
 				head={["Kaynak", "Endpoint'ler", "İşlemler"]}
 				rows={[
-					[<code>memberships</code>, <code>/memberships</code>, <><code>create</code>, <code>read</code>, <code>update</code>, <code>delete</code></>],
-					[<code>users</code>, <code>/memberships/{"{m}"}/users</code>, <><code>create</code>, <code>read</code>, <code>update</code>, <code>delete</code></>],
-					[<code>otp</code>, <code>/memberships/{"{m}"}/users/{"{id}"}/generate-otp</code>, <code>create</code>],
-					[<code>user-types</code>, <code>/memberships/{"{m}"}/user-types</code>, <><code>create</code>, <code>read</code>, <code>update</code>, <code>delete</code></>],
-					[<code>roles</code>, <code>/memberships/{"{m}"}/roles</code>, <><code>create</code>, <code>read</code>, <code>update</code>, <code>delete</code></>],
-					[<code>applications</code>, <code>/memberships/{"{m}"}/applications</code>, <><code>create</code>, <code>read</code>, <code>update</code>, <code>delete</code></>],
-					[<code>providers</code>, <code>/memberships/{"{m}"}/providers</code>, <><code>create</code>, <code>read</code>, <code>update</code>, <code>delete</code></>],
-					[<code>tokens</code>, <><code>/memberships/{"{m}"}/active-tokens</code>, <code>/revoked-tokens</code>, <code>/codes</code></>, <><code>read</code>, <code>create</code></>],
-					[<code>events</code>, <code>/memberships/{"{m}"}/events</code>, <code>read</code>],
-					[<code>webhooks</code>, <code>/memberships/{"{m}"}/webhooks</code>, <><code>create</code>, <code>read</code>, <code>update</code>, <code>delete</code></>],
-					[<code>mailhooks</code>, <code>/memberships/{"{m}"}/mailhooks</code>, <><code>create</code>, <code>read</code>, <code>update</code>, <code>delete</code></>],
-					[<code>code-policies</code>, <code>/memberships/{"{m}"}/code-policies</code>, <><code>create</code>, <code>read</code>, <code>update</code>, <code>delete</code></>],
-				]} />
+					[
+						<code>memberships</code>, 
+						<code>/memberships</code>, 
+						<div className="flex flex-wrap gap-x-2 gap-y-1.5">
+							<code>create</code>, <code>read</code>, <code>update</code>, <code>delete</code>
+						</div>
+					],
+					[
+						<code>users</code>, 
+						<code>/memberships/{"{m}"}/users</code>, 
+						<div className="flex flex-wrap gap-x-2 gap-y-1.5">
+							<code>create</code>, <code>read</code>, <code>update</code>, <code>delete</code>
+						</div>
+					],
+					[
+						<code>otp</code>, 
+						<code>/memberships/{"{m}"}/users/{"{id}"}/generate-otp</code>, 
+						<code>create</code>
+					],
+					[
+						<code>user-types</code>, 
+						<code>/memberships/{"{m}"}/user-types</code>, 
+						<div className="flex flex-wrap gap-x-2 gap-y-1.5">
+							<code>create</code>, <code>read</code>, <code>update</code>, <code>delete</code>
+						</div>
+					],
+					[
+						<code>roles</code>, 
+						<code>/memberships/{"{m}"}/roles</code>, 
+						<div className="flex flex-wrap gap-x-2 gap-y-1.5">
+							<code>create</code>, <code>read</code>, <code>update</code>, <code>delete</code>
+						</div>
+					],
+					[
+						<code>applications</code>, 
+						<code>/memberships/{"{m}"}/applications</code>, 
+						<div className="flex flex-wrap gap-x-2 gap-y-1.5">
+							<code>create</code>, <code>read</code>, <code>update</code>, <code>delete</code>
+						</div>
+					],
+					[
+						<code>providers</code>, 
+						<code>/memberships/{"{m}"}/providers</code>, 
+						<div className="flex flex-wrap gap-x-2 gap-y-1.5">
+							<code>create</code>, <code>read</code>, <code>update</code>, <code>delete</code>
+						</div>
+					],
+					[
+						<code>tokens</code>, 
+						<div className="flex flex-wrap gap-x-2 gap-y-1.5">
+							<code>/memberships/{"{m}"}/active-tokens</code>, <code>/revoked-tokens</code>, <code>/codes</code>
+						</div>, 
+						<div className="flex flex-wrap gap-x-2 gap-y-1.5">
+							<code>read</code>, <code>create</code>
+						</div>
+					],
+					[
+						<code>events</code>, 
+						<code>/memberships/{"{m}"}/events</code>, 
+						<code>read</code>
+					],
+					[
+						<code>webhooks</code>, 
+						<code>/memberships/{"{m}"}/webhooks</code>, 
+						<div className="flex flex-wrap gap-x-2 gap-y-1.5">
+							<code>create</code>, <code>read</code>, <code>update</code>, <code>delete</code>
+						</div>
+					],
+					[
+						<code>mailhooks</code>, 
+						<code>/memberships/{"{m}"}/mailhooks</code>, 
+						<div className="flex flex-wrap gap-x-2 gap-y-1.5">
+							<code>create</code>, <code>read</code>, <code>update</code>, <code>delete</code>
+						</div>
+					],
+					[
+						<code>code-policies</code>, 
+						<code>/memberships/{"{m}"}/code-policies</code>, 
+						<div className="flex flex-wrap gap-x-2 gap-y-1.5">
+							<code>create</code>, <code>read</code>, <code>update</code>, <code>delete</code>
+						</div>
+					],
+				]} 
+			/>
 			<p>
 				Her referans sayfası, her endpoint&apos;in istediği yetkiyi listeler. Birkaç endpoint, beklemeyebileceğiniz bir yetki ister:
 			</p>
 			<Table
 				head={["Endpoint", "Yetki"]}
 				rows={[
-					[<><code>GET /users/activation</code>, <code>POST /users/reset-password</code>, <code>POST /users/set-password</code></>, <code>users.update</code>],
-					[<code>POST /users/resend-activation-mail</code>, <code>users.create</code>],
-					[<><code>GET /users/verify-reset-token</code>, <code>GET /users/check-password</code></>, <code>users.read</code>],
-					[<code>GET /users/{"{id}"}/generate-otp</code>, <code>otp.create</code>],
-					[<><code>POST /codes</code>, <code>GET /codes/{"{user_code}"}</code>, <code>POST /codes/{"{user_code}"}/approve</code>, <code>POST /codes/{"{user_code}"}/deny</code></>, <code>tokens.create</code>],
-				]} />
+					[
+						<div className="flex flex-wrap gap-x-2 gap-y-1.5">
+							<code>GET /users/activation</code>, <code>POST /users/reset-password</code>, <code>POST /users/set-password</code>
+						</div>, 
+						<code>users.update</code>
+					],
+					[
+						<code>POST /users/resend-activation-mail</code>, 
+						<code>users.create</code>
+					],
+					[
+						<div className="flex flex-wrap gap-x-2 gap-y-1.5">
+							<code>GET /users/verify-reset-token</code>, <code>GET /users/check-password</code>
+						</div>, 
+						<code>users.read</code>
+					],
+					[
+						<code>GET /users/{"{id}"}/generate-otp</code>, 
+						<code>otp.create</code>
+					],
+					[
+						<div className="flex flex-wrap gap-x-2 gap-y-1.5">
+							<code>POST /codes</code>, <code>GET /codes/{"{user_code}"}</code>, <code>POST /codes/{"{user_code}"}/approve</code>, <code>POST /codes/{"{user_code}"}/deny</code>
+						</div>, 
+						<code>tokens.create</code>
+					],
+				]} 
+			/>
 			<p>
 				Şifre sıfırlama sayfası gibi herkese açık sayfalar bu endpoint&apos;leri genellikle bir uygulamanın Basic token&apos;ıyla, backend&apos;inizden çağırır.
 			</p>

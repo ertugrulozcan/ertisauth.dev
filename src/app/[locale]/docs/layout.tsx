@@ -34,7 +34,7 @@ export default async function DocsLayout({ children, params }: Props) {
 	return (
 		<>
 			<Header />
-			<div className="grid gap-8 lg:grid-cols-[14rem_minmax(0,1fr)] lg:gap-12 xl:grid-cols-[14rem_minmax(0,1fr)_12rem] max-w-7xl mx-auto px-4 pt-8 pb-24 sm:px-6 lg:pt-12">
+			<div className="grid gap-8 lg:grid-cols-[14rem_minmax(0,1fr)] lg:gap-12 xl:grid-cols-[14rem_minmax(0,1fr)_14rem] max-w-full 2xl:max-w-384 mx-auto px-4 pt-8 pb-24 sm:px-6 lg:pt-12">
 				<aside className="lg:sticky lg:top-24 lg:self-start lg:overflow-y-auto lg:max-h-[calc(100dvh-7rem)]">
 					<DocsSidebar groups={groups} menuLabel={t("menu")} />
 				</aside>

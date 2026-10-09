@@ -7,11 +7,11 @@ export const diagram = {
   │  { user_code: "K7Q2XD9M",                 │                                          │
   │    device_code: "…", interval: 5 }        │                                          │
   │◀───────────────────────────────────────── │                                          │
-  │  shows "K7Q2-XD9M"                        │              user types K7Q2XD9M          │
-  │                                           │   GET /codes/K7Q2XD9M  (device info)      │
-  │                                           │ ◀──────────────────────────────────────── │
-  │                                           │   POST /codes/K7Q2XD9M/approve            │
-  │                                           │ ◀──────────────────────────────────────── │
+  │  shows "K7Q2-XD9M"                        │              user types K7Q2XD9M         │
+  │                                           │   GET /codes/K7Q2XD9M  (device info)     │
+  │                                           │ ◀─────────────────────────────────────── │
+  │                                           │   POST /codes/K7Q2XD9M/approve           │
+  │                                           │ ◀─────────────────────────────────────── │
   │  POST /codes/token { device_code }        │                                          │
   │  (every \`interval\` seconds)               │                                          │
   │─────────────────────────────────────────▶ │                                          │
@@ -23,11 +23,11 @@ export const diagram = {
   │  { user_code: "K7Q2XD9M",                 │                                          │
   │    device_code: "…", interval: 5 }        │                                          │
   │◀───────────────────────────────────────── │                                          │
-  │  ekranda K7Q2-XD9M                        │         kullanıcı K7Q2XD9M girer          │
-  │                                           │   GET /codes/K7Q2XD9M  (cihaz bilgisi)    │
-  │                                           │ ◀──────────────────────────────────────── │
-  │                                           │   POST /codes/K7Q2XD9M/approve            │
-  │                                           │ ◀──────────────────────────────────────── │
+  │  ekranda K7Q2-XD9M                        │         kullanıcı K7Q2XD9M girer         │
+  │                                           │   GET /codes/K7Q2XD9M  (cihaz bilgisi)   │
+  │                                           │ ◀─────────────────────────────────────── │
+  │                                           │   POST /codes/K7Q2XD9M/approve           │
+  │                                           │ ◀─────────────────────────────────────── │
   │  POST /codes/token { device_code }        │                                          │
   │  (her \`interval\` saniyede)                │                                          │
   │─────────────────────────────────────────▶ │                                          │

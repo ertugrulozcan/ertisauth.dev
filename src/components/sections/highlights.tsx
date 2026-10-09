@@ -15,7 +15,7 @@ export function Highlights() {
 	return (
 		<section className="bg-bg-subtle border-y border-border">
 			{/* The 1px gaps over the border-colored background draw the dividers between the cells */}
-			<div className="grid gap-px sm:grid-cols-2 lg:grid-cols-4 max-w-6xl mx-auto">
+			<div className="grid gap-px sm:grid-cols-2 lg:grid-cols-4 max-w-6xl 2xl:max-w-7xl mx-auto">
 				{items.map(({ key, icon: Icon }, index) => (
 					<Reveal key={key} className="px-8 py-8 sm:px-6" delay={index * 80}>
 						<Icon className="text-accent size-5" aria-hidden="true" />

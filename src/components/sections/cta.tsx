@@ -12,7 +12,7 @@ export function Cta() {
 
 	return (
 		<section className="px-4 py-24 sm:px-6">
-			<Reveal className="relative bg-surface rounded-3xl border border-border text-center overflow-hidden max-w-6xl mx-auto px-6 py-16 sm:px-12 sm:py-20">
+			<Reveal className="relative bg-surface rounded-3xl border border-border text-center overflow-hidden max-w-6xl 2xl:max-w-7xl mx-auto px-6 py-16 sm:px-12 sm:py-20">
 				<div className="absolute inset-0 hero-glow pointer-events-none" aria-hidden="true" />
 				<div className="relative">
 					<LogoMark className="size-12 mx-auto" />

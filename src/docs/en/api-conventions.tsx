@@ -22,17 +22,44 @@ export default function ApiConventions() {
 				rows={[
 					[
 						"Membership-bounded resources",
-						<><code>/memberships/{"{membershipId}"}/users</code>, <code>/roles</code>, <code>/applications</code>, <code>/user-types</code>, <code>/providers</code>, <code>/webhooks</code>, <code>/mailhooks</code>, <code>/events</code>, <code>/code-policies</code>, <code>/codes</code>, <code>/active-tokens</code>, <code>/revoked-tokens</code></>,
+						<div className="flex flex-wrap gap-x-2 gap-y-1.5">
+							<code>/memberships/{"{membershipId}"}/users</code>, 
+							<code>/roles</code>, 
+							<code>/applications</code>, 
+							<code>/user-types</code>, 
+							<code>/providers</code>, 
+							<code>/webhooks</code>, 
+							<code>/mailhooks</code>, 
+							<code>/events</code>, 
+							<code>/code-policies</code>, 
+							<code>/codes</code>, 
+							<code>/active-tokens</code>, 
+							<code>/revoked-tokens</code>
+						</div>,
 						"the route",
 					],
 					[
 						"Token endpoints",
-						<><code>/generate-token</code>, <code>/refresh-token</code>, <code>/verify-token</code>, <code>/revoke-token</code>, <code>/me</code>, <code>/whoami</code>, <code>/verify-otp</code>, <code>/oauth/{"{slug}"}/login</code></>,
+						<div className="flex flex-wrap gap-x-2 gap-y-1.5">
+							<code>/generate-token</code>, 
+							<code>/refresh-token</code>, 
+							<code>/verify-token</code>, 
+							<code>/revoke-token</code>, 
+							<code>/me</code>, 
+							<code>/whoami</code>, 
+							<code>/verify-otp</code>, 
+							<code>/oauth/{"{slug}"}/login</code>
+						</div>,
 						<>the <code>X-Ertis-Alias</code> header (only where a membership is needed)</>,
 					],
 					[
 						"Installation-wide",
-						<><code>/memberships</code>, <code>/setup</code>, <code>/healthcheck</code>, <code>/ping</code></>,
+						<div className="flex flex-wrap gap-x-2 gap-y-1.5">
+							<code>/memberships</code>, 
+							<code>/setup</code>, 
+							<code>/healthcheck</code>, 
+							<code>/ping</code>
+						</div>,
 						"not bound to a membership",
 					],
 				]} />

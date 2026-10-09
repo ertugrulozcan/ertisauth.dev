@@ -22,20 +22,48 @@ export default function ApiConventions() {
 				rows={[
 					[
 						"Membership'e bağlı kaynaklar",
-						<><code>/memberships/{"{membershipId}"}/users</code>, <code>/roles</code>, <code>/applications</code>, <code>/user-types</code>, <code>/providers</code>, <code>/webhooks</code>, <code>/mailhooks</code>, <code>/events</code>, <code>/code-policies</code>, <code>/codes</code>, <code>/active-tokens</code>, <code>/revoked-tokens</code></>,
+						<div className="flex flex-wrap gap-x-2 gap-y-1.5">
+							<code>/memberships/{"{membershipId}"}/users</code>
+							<code>/roles</code>
+							<code>/applications</code>
+							<code>/user-types</code>
+							<code>/providers</code>
+							<code>/webhooks</code>
+							<code>/mailhooks</code>
+							<code>/events</code>
+							<code>/code-policies</code>
+							<code>/codes</code>
+							<code>/active-tokens</code>
+							<code>/revoked-tokens</code>
+						</div>,
 						"route",
 					],
 					[
 						"Token endpoint'leri",
-						<><code>/generate-token</code>, <code>/refresh-token</code>, <code>/verify-token</code>, <code>/revoke-token</code>, <code>/me</code>, <code>/whoami</code>, <code>/verify-otp</code>, <code>/oauth/{"{slug}"}/login</code></>,
+						<div className="flex flex-wrap gap-x-2 gap-y-1.5">
+							<code>/generate-token</code>
+							<code>/refresh-token</code>
+							<code>/verify-token</code>
+							<code>/revoke-token</code>
+							<code>/me</code>
+							<code>/whoami</code>
+							<code>/verify-otp</code>
+							<code>/oauth/{"{slug}"}/login</code>
+						</div>,
 						<><code>X-Ertis-Alias</code> header&apos;ı (yalnızca membership gereken yerlerde)</>,
 					],
 					[
 						"Kurulum geneli",
-						<><code>/memberships</code>, <code>/setup</code>, <code>/healthcheck</code>, <code>/ping</code></>,
+						<div className="flex flex-wrap gap-x-2 gap-y-1.5">
+							<code>/memberships</code>
+							<code>/setup</code>
+							<code>/healthcheck</code>
+							<code>/ping</code>
+						</div>,
 						"bir membership'e bağlı değil",
 					],
-				]} />
+				]} 
+			/>
 
 			<H3 id="membership-isolation">
 				Membership izolasyonu

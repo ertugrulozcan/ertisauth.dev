@@ -136,17 +136,17 @@ const Menu = React.forwardRef<MenuRef, MenuProps>((props: MenuProps, ref) => {
 							key={section}
 							href={sectionHref(section)}
 							onClick={() => close()}
-							className="text-lg text-fg hover:text-hover hover:underline py-3">
+							className="text-base text-fg hover:text-hover hover:underline py-3">
 							{t(section)}
 						</a>
 					))}
 					<a
 						href={docs}
 						aria-current={onDocs ? "page" : undefined}
-						className={clsx("text-lg py-3", onDocs ? "text-fg" : "text-fg hover:text-hover hover:underline")}>
+						className={clsx("text-base py-3", onDocs ? "text-fg" : "text-fg hover:text-hover hover:underline")}>
 						{t("docs")}
 					</a>
-					<a href={links.github} className="inline-flex items-center gap-2 text-lg text-fg hover:text-hover py-3">
+					<a href={links.github} className="inline-flex items-center gap-2 text-base text-fg hover:text-hover py-3">
 						<GitHubIcon className="size-4" />
 						{t("github")}
 					</a>

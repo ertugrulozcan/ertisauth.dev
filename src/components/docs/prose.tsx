@@ -58,13 +58,13 @@ export function Code({ language, code, title }: CodeProps) {
 	return (
 		<div className="bg-code-bg rounded-xl border border-code-border text-code-fg overflow-hidden my-6">
 			<div className="flex items-center gap-3 bg-code-bar border-b border-code-border h-9 pl-4 pr-2">
-				<span className="flex-1 truncate font-mono text-xs text-code-muted">
+				<span className="flex-1 truncate font-mono text-xs text-code-fg">
 					{title ?? language}
 				</span>
 				<CopyButton text={copyText(code, language)} />
 			</div>
 			<pre className="font-mono text-[0.8rem] leading-relaxed overflow-x-auto p-4">
-				<code>
+				<code className="bg-code-bg! border-code-bg!">
 					{highlight(code, language)}
 				</code>
 			</pre>
@@ -132,18 +132,19 @@ type TableProps = {
 	rows?: ReactNode[][]
 	// ...or thead/tbody/tr/th/td written as plain elements
 	children?: ReactNode
+	className?: string
 }
 
 // A table that scrolls horizontally on narrow screens
-export function Table({ head, rows, children }: TableProps) {
+export function Table({ head, rows, children, className }: TableProps) {
 	return (
-		<div className="docs-table">
+		<div className={`docs-table ${className || ""}`}>
 			<table>
 				{head && (
 					<thead>
 						<tr>
 							{head.map((cell, index) => (
-								<th key={index} className="min-w-32">
+								<th key={index} className="min-w-40">
 									{cell}
 								</th>
 							))}

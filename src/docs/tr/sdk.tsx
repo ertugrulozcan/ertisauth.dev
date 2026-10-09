@@ -258,7 +258,8 @@ export default function Sdk() {
 					[<code>ERTISAUTH611</code>, "uyarı", <><code>[Authorized]</code>, <code>[SelfAuthorized]</code> ve <code>[Unauthorized]</code> aynı seviyede çelişiyor (base sınıflarıyla birlikte controller ya da action)</>],
 					[<code>ERTISAUTH612</code>, "bilgi", <><code>[SelfAuthorized]</code> ya da <code>[Unauthorized]</code> bir action&apos;ın rbac attribute&apos;ları kontrol edilmiyor</>],
 					[<code>ERTISAUTH613</code>, "uyarı", <>Kimlik doğrulanmayan bir action <code>GetUtilizer()</code> çağırıyor; orada her zaman <code>null</code> döner</>],
-				]} />
+				]} 
+			/>
 
 			<H3 id="the-caller">
 				Çağıran

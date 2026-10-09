@@ -38,7 +38,7 @@ type SectionProps = {
 export function Section({ id, children, className }: SectionProps) {
 	return (
 		<section id={id} className={clsx("px-4 py-20 sm:px-6 sm:py-28", className)}>
-			<div className="max-w-6xl mx-auto">
+			<div className="max-w-6xl 2xl:max-w-7xl mx-auto">
 				{children}
 			</div>
 		</section>

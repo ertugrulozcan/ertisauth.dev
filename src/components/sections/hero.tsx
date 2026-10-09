@@ -17,7 +17,7 @@ export function Hero() {
 			<div className="absolute inset-0 hero-grid pointer-events-none -z-10" aria-hidden="true" />
 			<div className="absolute inset-0 hero-glow pointer-events-none -z-10" aria-hidden="true" />
 
-			<div className="max-w-6xl mx-auto">
+			<div className="max-w-6xl 2xl:max-w-7xl mx-auto">
 				<div className="text-center max-w-3xl mx-auto">
 					<a
 						href={links.github}
