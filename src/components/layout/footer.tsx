@@ -27,7 +27,7 @@ export function Footer() {
 							ErtisAuth
 						</span>
 					</span>
-					<p className="shrink-0 text-xs text-faint pt-0.5">
+					<p className="shrink-0 text-sm text-faint pt-0.5">
 						{t("tagline")}
 					</p>
 				</div>

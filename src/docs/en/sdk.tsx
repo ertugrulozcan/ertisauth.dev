@@ -1,5 +1,6 @@
 import * as samples from "../samples/sdk"
 import { Callout, Code, DocLink, H2, H3, Table } from "@/components/docs/prose"
+import { NugetBadges } from "@/components/sections/nuget-packages"
 
 export default function Sdk() {
 	return (
@@ -16,6 +17,13 @@ export default function Sdk() {
 			<p>
 				Use <code>ErtisAuth.Sdk.AspNetCore</code> for an ASP.NET Core API whose endpoints ErtisAuth users and applications call. Use <code>ErtisAuth.Sdk</code> alone to call ErtisAuth from a worker, a console application or any other .NET program. Both target .NET 10.
 			</p>
+
+			<H2 id="packages">
+				Packages
+			</H2>
+			<div>
+				<NugetBadges className="flex flex-wrap gap-x-3 gap-y-2.5" />
+			</div>
 
 			<H2 id="quick-start">
 				Quick start

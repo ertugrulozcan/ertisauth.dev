@@ -1,3 +1,4 @@
+import Image from "next/image"
 import { Fragment } from "react"
 import { ArrowUpRight, Package } from "lucide-react"
 import { CopyButton } from "@/components/utils/copy-button"
@@ -14,41 +15,46 @@ export function NugetPackages() {
 				{t("title")}
 			</h3>
 			<div className="grid gap-4 md:grid-cols-2 mt-6">
-				{packages.map(({ name, version, url, description }, index) => {
+				{packages.map(({ name, version, url, badge, description }, index) => {
 					const command = `dotnet add package ${name}`
 
 					return (
 						<Reveal key={name} delay={index * 100}>
 							<article className="flex flex-col bg-surface rounded-2xl border border-border h-full p-5 sm:p-6">
-								<div className="flex items-center gap-3">
-									<div className="inline-flex shrink-0 items-center justify-center bg-accent-soft rounded-lg text-accent size-9">
-										<Package className="size-[1.15rem]" aria-hidden="true" />
-									</div>
-									<div className="flex flex-wrap items-center gap-x-2 gap-y-1 min-w-0">
-										<span className="font-mono text-sm font-semibold">
-											{/* A long name may wrap after a dot, never inside a word */}
-											{name.split(".").map((part, position) => (
-												<Fragment key={position}>
-													{position > 0 && (
-														<>
-															.
-															<wbr />
-														</>
-													)}
-													{part}
-												</Fragment>
-											))}
-										</span>
-										<span className="rounded-full border border-border font-mono text-[0.7rem] text-muted px-2 py-0.5">
-											<span className="sr-only">
-												{t("version")}{" "}
+								<div className="flex items-start gap-3">
+									<div className="flex items-center gap-3">
+										<div className="inline-flex shrink-0 items-center justify-center bg-accent-soft rounded-lg text-accent size-9">
+											<Package className="size-[1.15rem]" aria-hidden="true" />
+										</div>
+										<div className="flex flex-wrap items-center gap-x-2 gap-y-1 min-w-0">
+											<span className="font-mono text-sm font-semibold">
+												{/* A long name may wrap after a dot, never inside a word */}
+												{name.split(".").map((part, position) => (
+													<Fragment key={position}>
+														{position > 0 && (
+															<>
+																.
+																<wbr />
+															</>
+														)}
+														{part}
+													</Fragment>
+												))}
 											</span>
-											v{version}
-										</span>
+
+											<span className="rounded-full border border-border font-mono text-[0.7rem] text-muted px-2 py-0.5">
+												<span className="sr-only">
+													{t("version")}{" "}
+												</span>
+												v{version}
+											</span>
+										</div>
 									</div>
 									<a
-										href={url}
-										className="inline-flex shrink-0 items-center gap-1 text-sm font-medium text-accent hover:underline hover:underline-offset-4 ml-auto">
+										href={url} 
+										target="_blank" 
+										className="inline-flex shrink-0 items-center gap-1 text-sm font-medium text-accent hover:underline hover:underline-offset-4 ml-auto" 
+										rel="noopener noreferrer">
 										{t("nuget")}
 										<ArrowUpRight className="size-4" aria-hidden="true" />
 									</a>
@@ -70,6 +76,23 @@ export function NugetPackages() {
 					)
 				})}
 			</div>
+		</div>
+	)
+}
+
+export function NugetBadges(props: { className?: string }) {
+	return (
+		<div className={props.className || ""}>
+			{packages.map(({ name, url, badge }, index) => (
+				<div key={index} className="relative">
+					<a
+						href={url} 
+						target="_blank"  
+						rel="noopener noreferrer">
+						<Image src={badge} alt={name} width={0} height={0} className="hover:shadow-[0_0_25px_8px] shadow-indigo-100 dark:shadow-neutral-800 h-5 w-auto" />
+					</a>
+				</div>
+			))}
 		</div>
 	)
 }

@@ -31,7 +31,7 @@ export function Header() {
 			)}>
 			<div className={`flex items-center gap-4 xl:gap-6 h-16 ${onDocs ? "max-w-full 2xl:max-w-384" : "max-w-6xl 2xl:max-w-7xl"} mx-auto pl-5 pr-3 sm:px-6`}>
 				<a
-					href={"/"}
+					href={home}
 					className="flex items-center rounded-md focus-visible:outline-2 focus-visible:outline-accent"
 					onClick={() => menu.current?.close()}>
 					<Logo />

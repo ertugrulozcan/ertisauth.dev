@@ -1,4 +1,5 @@
 import { DocLink, H2, Table } from "@/components/docs/prose"
+import { NugetBadges } from "@/components/sections/nuget-packages"
 
 export default function Home() {
 	return (
@@ -256,6 +257,13 @@ export default function Home() {
 				</tbody>
 			</Table>
 
+			<H2 id="packages">
+				Paketler
+			</H2>
+			<div>
+				<NugetBadges className="flex flex-wrap gap-x-3 gap-y-2.5" />
+			</div>
+			
 			<H2 id="license">
 				Lisans
 			</H2>

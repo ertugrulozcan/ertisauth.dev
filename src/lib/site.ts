@@ -22,8 +22,19 @@ export const icons: Metadata["icons"] = {
 }
 
 // The NuGet packages of the SDK, shown in the developers section.
-// PLACEHOLDERS until the packages are published: set the real versions (and check the URLs) after the release.
 export const packages = [
-	{ name: "ErtisAuth.Sdk", version: "0.0.0", url: "https://www.nuget.org/packages/ErtisAuth.Sdk", description: "client" },
-	{ name: "ErtisAuth.Sdk.AspNetCore", version: "0.0.0", url: "https://www.nuget.org/packages/ErtisAuth.Sdk.AspNetCore", description: "aspnetcore" },
+	{ 
+		name: "ErtisAuth.Sdk", 
+		version: "10.0.0", 
+		url: "https://www.nuget.org/packages/ErtisAuth.Sdk", 
+		badge: "https://img.shields.io/nuget/v/ErtisAuth.Sdk?label=ErtisAuth.Sdk&style=flat", 
+		description: "client" 
+	},
+	{ 
+		name: "ErtisAuth.Sdk.AspNetCore", 
+		version: "10.0.0", 
+		url: "https://www.nuget.org/packages/ErtisAuth.Sdk.AspNetCore", 
+		badge: "https://img.shields.io/nuget/v/ErtisAuth.Sdk.AspNetCore?label=ErtisAuth.Sdk.AspNetCore&style=flat", 
+		description: "aspnetcore" 
+	},
 ] as const
