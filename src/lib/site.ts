@@ -25,14 +25,14 @@ export const icons: Metadata["icons"] = {
 export const packages = [
 	{ 
 		name: "ErtisAuth.Sdk", 
-		version: "10.0.0", 
+		version: "10.0.2", 
 		url: "https://www.nuget.org/packages/ErtisAuth.Sdk", 
 		badge: "https://img.shields.io/nuget/v/ErtisAuth.Sdk?label=ErtisAuth.Sdk&style=flat", 
 		description: "client" 
 	},
 	{ 
 		name: "ErtisAuth.Sdk.AspNetCore", 
-		version: "10.0.0", 
+		version: "10.0.2", 
 		url: "https://www.nuget.org/packages/ErtisAuth.Sdk.AspNetCore", 
 		badge: "https://img.shields.io/nuget/v/ErtisAuth.Sdk.AspNetCore?label=ErtisAuth.Sdk.AspNetCore&style=flat", 
 		description: "aspnetcore" 

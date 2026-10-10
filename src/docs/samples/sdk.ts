@@ -143,7 +143,7 @@ public IActionResult Report([FromQuery] string reportId) { … }`
 
 export const clientRegistration = `using ErtisAuth.Sdk.Extensions;
 
-builder.Services.AddErtisAuth();`
+builder.Services.AddErtisAuthServices();`
 
 export const signIn = `using System.Net;
 using ErtisAuth.Extensions.Authorization.Attributes;
@@ -219,7 +219,7 @@ export const workerProgram = `using ErtisAuth.Sdk.Extensions;
 
 var builder = Host.CreateApplicationBuilder(args);
 
-builder.Services.AddErtisAuth();
+builder.Services.AddErtisAuthServices();
 builder.Services.AddHostedService<InactiveUsersReport>();
 
 builder.Build().Run();`
