@@ -292,7 +292,7 @@ export default function GettingStarted() {
 					Create roles for your users in <DocLink to="roles">Roles</DocLink> and learn the <DocLink to="authorization">permission model</DocLink>.
 				</li>
 				<li>
-					Configure activation and password reset mails with <DocLink to="mail-hooks">Mail Hooks</DocLink> and <DocLink to="account-recovery">Account Recovery</DocLink>.
+					Configure activation and password reset mails with <DocLink to="mail-hooks">Mailhooks</DocLink> and <DocLink to="account-recovery">Account Recovery</DocLink>.
 				</li>
 				<li>
 					Protect your own services with the <DocLink to="sdk">.NET SDK</DocLink>.

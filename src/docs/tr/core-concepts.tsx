@@ -236,7 +236,7 @@ export default function CoreConcepts() {
 				</li>
 			</ul>
 			<p>
-				Bkz. <DocLink to="events">Olaylar</DocLink>, <DocLink to="webhooks">Webhook&apos;lar</DocLink> ve <DocLink to="mail-hooks">Mail Hook&apos;lar</DocLink>.
+				Bkz. <DocLink to="events">Olaylar</DocLink>, <DocLink to="webhooks">Webhook&apos;lar</DocLink> ve <DocLink to="mail-hooks">Mailhook&apos;lar</DocLink>.
 			</p>
 
 			<H2 id="identifiers-and-slugs">

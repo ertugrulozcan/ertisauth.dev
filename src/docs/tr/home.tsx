@@ -117,7 +117,7 @@ export default function Home() {
 					<DocLink to="external-providers">Harici Kimlik Sağlayıcılar</DocLink>: Google, Apple, Facebook ve Microsoft ile giriş.
 				</li>
 				<li>
-					<DocLink to="events">Olaylar</DocLink>, <DocLink to="webhooks">Webhook&apos;lar</DocLink> ve <DocLink to="mail-hooks">Mail Hook&apos;lar</DocLink>: bir membership&apos;te olup bitenlere tepki verin.
+					<DocLink to="events">Olaylar</DocLink>, <DocLink to="webhooks">Webhook&apos;lar</DocLink> ve <DocLink to="mail-hooks">Mailhook&apos;lar</DocLink>: bir membership&apos;te olup bitenlere tepki verin.
 				</li>
 				<li>
 					<DocLink to="sdk">.NET SDK</DocLink>: istemci SDK&apos;sı ve ASP.NET Core entegrasyonu.
@@ -243,7 +243,7 @@ export default function Home() {
 							Mail hook&apos;lar
 						</td>
 						<td>
-							<DocLink to="mail-hooks">Mail Hook&apos;lar</DocLink>
+							<DocLink to="mail-hooks">Mailhook&apos;lar</DocLink>
 						</td>
 					</tr>
 					<tr>

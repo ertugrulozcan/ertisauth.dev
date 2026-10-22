@@ -11,7 +11,7 @@ export const tree = {
     ├── Code Policies ──── format of device sign-in codes
     ├── Events ─────────── the log of what happened
     ├── Webhooks ───────── HTTP calls triggered by events
-    └── Mail Hooks ─────── emails triggered by events`,
+    └── Mailhooks ─────── emails triggered by events`,
 	tr: `Kurulum
 └── Membership (kiracı)
     ├── Users ──────────── bir rolü, bir kullanıcı tipi ve isteğe bağlı kendi yetkileri vardır
@@ -22,7 +22,7 @@ export const tree = {
     ├── Code Policies ──── cihazla giriş kodlarının biçimi
     ├── Events ─────────── olup bitenlerin kaydı
     ├── Webhooks ───────── olayların tetiklediği HTTP çağrıları
-    └── Mail Hooks ─────── olayların tetiklediği e-postalar`,
+    └── Mailhooks ─────── olayların tetiklediği e-postalar`,
 }
 
 export const sys = `"sys": {

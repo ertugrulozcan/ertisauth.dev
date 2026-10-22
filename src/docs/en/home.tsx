@@ -117,7 +117,7 @@ export default function Home() {
 					<DocLink to="external-providers">External Identity Providers</DocLink>: Google, Apple, Facebook and Microsoft sign-in.
 				</li>
 				<li>
-					<DocLink to="events">Events</DocLink>, <DocLink to="webhooks">Webhooks</DocLink> and <DocLink to="mail-hooks">Mail Hooks</DocLink>: react to what happens in a membership.
+					<DocLink to="events">Events</DocLink>, <DocLink to="webhooks">Webhooks</DocLink> and <DocLink to="mail-hooks">Mailhooks</DocLink>: react to what happens in a membership.
 				</li>
 				<li>
 					<DocLink to="sdk">.NET SDK</DocLink>: the client SDK and the ASP.NET Core integration.
@@ -243,7 +243,7 @@ export default function Home() {
 							Mail hooks
 						</td>
 						<td>
-							<DocLink to="mail-hooks">Mail Hooks</DocLink>
+							<DocLink to="mail-hooks">Mailhooks</DocLink>
 						</td>
 					</tr>
 					<tr>

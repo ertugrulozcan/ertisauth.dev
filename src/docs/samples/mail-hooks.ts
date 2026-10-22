@@ -1,6 +1,6 @@
-// The code samples of the Mail Hooks page, shared by every language
+// The code samples of the Mailhooks page, shared by every language
 
-export const mailHook = `{
+export const mailhook = `{
 	"_id": "66f1c0d2a4b5c6d7e8f901b0",
 	"name": "Welcome",
 	"slug": "welcome",

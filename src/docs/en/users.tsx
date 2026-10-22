@@ -18,8 +18,8 @@ export default function Users() {
 			<Table
 				head={["Field", "Description"]}
 				rows={[
-					[<code>username</code>, "Required, unique in the membership. Can be used to sign in."],
-					[<code>email_address</code>, "Required, a valid email address, unique in the membership. Can be used to sign in."],
+					[<code>username</code>, "Required, unique in the membership. Can be used to sign in, so it can't be the email address of another user."],
+					[<code>email_address</code>, "Required, a valid email address, unique in the membership. Can be used to sign in, so it can't be the username of another user."],
 					[<code>firstname</code>, "Required."],
 					[<code>lastname</code>, "Optional."],
 					[<code>role</code>, "Required. The slug of an existing role."],
@@ -104,10 +104,10 @@ export default function Users() {
 					<code>is_active</code>, <code>source_provider</code> and <code>connected_accounts</code> in the body are ignored: when the membership requires <DocLink to="account-recovery" hash="account-activation">activation</DocLink>, the user is created inactive and the activation mail is sent to the link host in <code>X-Host</code>; otherwise the user is active immediately.
 				</li>
 				<li>
-					<code>user_type</code> is required in practice: without it the built-in <code>base-user</code> type would be used, which is abstract (<code>400 InheritedTypeIsAbstract</code>).
+					<code>user_type</code> is required (<code>400 UserTypeRequired</code>). The built-in <code>base-user</code> type is abstract, so no user can have it (<code>400 InheritedTypeIsAbstract</code>).
 				</li>
 				<li>
-					<code>email_address</code> is stored in lower case.
+					<code>username</code> and <code>email_address</code> are stored trimmed and in lower case (Unicode NFC), so <code>Ada</code> and <code>ada</code> are the same username.
 				</li>
 			</ul>
 			<p>
@@ -117,16 +117,20 @@ export default function Users() {
 				A duplicate username, email address or other <DocLink to="user-types" hash="unique-fields">unique field</DocLink> is reported as a field error:
 			</p>
 			<Code language="json" code={samples.duplicateError} />
+			<p>
+				A username that is the email address of another user, or an email address that is the username of another user, is reported the same way, with the message <code>The &apos;username&apos; field can not be the email_address of another user.</code> (or <code>The &apos;email_address&apos; field can not be the username of another user.</code>). A user&apos;s own username may be its own email address.
+			</p>
 			<Table
 				head={["Error", "When"]}
 				rows={[
 					[<><code>400 PasswordRequired</code>, <code>400 PasswordMinLengthRuleError</code></>, "Missing or too short password"],
 					[<code>400 RoleRequired</code>, <><code>role</code> is missing</>],
+					[<code>400 UserTypeRequired</code>, <><code>user_type</code> is missing</>],
 					[<><code>400 FieldValidationException</code>, <code>400 ValidationException</code></>, "A field does not match the user type schema"],
-					[<code>400 ValidationException</code>, "The username, the email address or another unique field is already used by another user (see above)"],
+					[<code>400 ValidationException</code>, "The username, the email address or another unique field is already used by another user, or the username is the email address of another user (or the other way round) (see above)"],
 					[<><code>404 RoleNotFound</code>, <code>404 UserTypeNotFound</code></>, "Unknown role or user type"],
 					[<code>409 UbacsConflicted</code>, <>The same entry is in <code>permissions</code> and <code>forbidden</code></>],
-					[<><code>501 NotDefinedAnyMailProvider</code>, <code>501 ActivationMailHookWasNotDefined</code></>, "Activation is required but no mail can be sent"],
+					[<><code>501 NotDefinedAnyMailProvider</code>, <code>501 ActivationMailhookWasNotDefined</code></>, "Activation is required but no mail can be sent"],
 				]} />
 
 			<H3 id="update-a-user">

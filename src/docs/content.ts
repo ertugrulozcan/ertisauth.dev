@@ -38,8 +38,8 @@ import EnEvents from "./en/events"
 import TrEvents from "./tr/events"
 import EnWebhooks from "./en/webhooks"
 import TrWebhooks from "./tr/webhooks"
-import EnMailHooks from "./en/mail-hooks"
-import TrMailHooks from "./tr/mail-hooks"
+import EnMailhooks from "./en/mail-hooks"
+import TrMailhooks from "./tr/mail-hooks"
 import EnErrorCodes from "./en/error-codes"
 import TrErrorCodes from "./tr/error-codes"
 import type { ComponentType } from "react"
@@ -67,7 +67,7 @@ export const contents: Record<DocSlug, Record<Locale, ComponentType>> = {
 	"sessions": { en: EnSessions, tr: TrSessions },
 	"events": { en: EnEvents, tr: TrEvents },
 	"webhooks": { en: EnWebhooks, tr: TrWebhooks },
-	"mail-hooks": { en: EnMailHooks, tr: TrMailHooks },
+	"mail-hooks": { en: EnMailhooks, tr: TrMailhooks },
 	"error-codes": { en: EnErrorCodes, tr: TrErrorCodes },
 }
 

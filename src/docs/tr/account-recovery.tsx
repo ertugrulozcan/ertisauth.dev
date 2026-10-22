@@ -70,8 +70,9 @@ export default function AccountRecovery() {
 					Membership&apos;e bir mail sağlayıcısı ekleyin (<code>mail_providers</code>; bkz. <DocLink to="memberships" hash="mail-providers">Membership&apos;ler</DocLink>).
 				</li>
 				<li>
-					Adı tam olarak <strong><code>User Activation</code></strong> olan, <strong><code>UserCreated</code></strong> olayı için ve <code>active</code> durumunda bir <DocLink to="mail-hooks">mail hook</DocLink> oluşturun. Şablonunda <code>{"{{activationLink}}"}</code> kullanın:
-					<Code language="json" code={samples.activationMailHook} />
+					Slug'ı <strong><code>user-activation</code></strong> olan, <strong><code>UserCreated</code></strong> event'ine bağlı bir <DocLink to="mail-hooks">mail hook</DocLink> oluşturun ve <code>active</code> hale getirin. 
+					Mail şablonunda aktivasyon linkini yerleştirmek istediğiniz yere <code>{"{{activationLink}}"}</code> ekleyin:
+					<Code language="json" code={samples.activationMailhook} />
 					Şablon <code>user</code> (yeni kullanıcı) ve <code>activationLink</code> değerlerini alır.
 				</li>
 				<li>
@@ -79,7 +80,7 @@ export default function AccountRecovery() {
 				</li>
 			</ol>
 			<p>
-				Mail sağlayıcısı ya da aktivasyon mail hook&apos;u olmadan kullanıcı oluşturma, hiçbir şey oluşturulmadan <code>501 NotDefinedAnyMailProvider</code> ya da <code>501 ActivationMailHookWasNotDefined</code> ile başarısız olur.
+				Mail sağlayıcısı ya da aktivasyon mail hook&apos;u olmadan kullanıcı oluşturma, hiçbir şey oluşturulmadan <code>501 NotDefinedAnyMailProvider</code> ya da <code>501 ActivationMailhookWasNotDefined</code> ile başarısız olur.
 			</p>
 
 			<H3 id="flow">
@@ -124,7 +125,7 @@ export default function AccountRecovery() {
 					[<><code>400 HostRequired</code>, <code>400 EmailAddressRequired</code></>, "Zorunlu bir değer eksik"],
 					[<code>400 UserAlreadyActive</code>, "Aktifleştirilecek bir şey yok"],
 					[<code>404 UserNotFound</code>, "Bu e-posta adresine sahip kullanıcı yok"],
-					[<><code>501 NotDefinedAnyMailProvider</code>, <code>501 ActivationMailHookWasNotDefined</code></>, "E-posta gönderilemiyor"],
+					[<><code>501 NotDefinedAnyMailProvider</code>, <code>501 ActivationMailhookWasNotDefined</code></>, "E-posta gönderilemiyor"],
 				]} />
 
 			<H3 id="activating-without-a-mail">
@@ -146,12 +147,13 @@ export default function AccountRecovery() {
 					Membership&apos;e bir mail sağlayıcısı ekleyin.
 				</li>
 				<li>
-					Adı tam olarak <strong><code>Reset Password</code></strong> olan, <strong><code>UserPasswordReset</code></strong> olayı için ve <code>active</code> durumunda bir <DocLink to="mail-hooks">mail hook</DocLink> oluşturun. Şablonunda <code>{"{{resetPasswordLink}}"}</code> kullanın:
-					<Code language="json" code={samples.resetMailHook} />
+					Slug'ı <strong><code>reset-password</code></strong> olan, <strong><code>UserPasswordReset</code></strong> event'ine bağlı bir <DocLink to="mail-hooks">mail hook</DocLink> oluşturun ve <code>active</code> hale getirin. 
+					Mail şablonunda parola sıfırlama bağlantısını yerleştirmek istediğiniz yere <code>{"{{resetPasswordLink}}"}</code> ekleyin:
+					<Code language="json" code={samples.resetMailhook} />
 					Şablon <code>user</code> ve <code>resetPasswordLink</code> değerlerini alır.
 				</li>
 				<li>
-					İsterseniz membership&apos;te <code>reset_password_token_expires_in</code> değerini ayarlayın (varsayılan olarak 2 saat).
+					Membership ayarlarında parola sıfırlama token ömrünü (<code>reset_password_token_expires_in</code>) değiştirebilirsiniz. Varsayılan olarak 2 saat kabul edilir.
 				</li>
 			</ol>
 
@@ -175,7 +177,7 @@ export default function AccountRecovery() {
 					[<><code>400 HostRequired</code>, <code>400 EmailAddressRequired</code></>, "Zorunlu bir değer eksik"],
 					[<code>401 UserInactive</code>, "Hesap aktif değil ya da dondurulmuş: bu yolla kurtarılamaz"],
 					[<code>404 UserNotFound</code>, "Bu e-posta adresine sahip kullanıcı yok"],
-					[<><code>501 NotDefinedAnyMailProvider</code>, <code>501 ResetPasswordMailHookWasNotDefined</code></>, "E-posta gönderilemiyor"],
+					[<><code>501 NotDefinedAnyMailProvider</code>, <code>501 ResetPasswordMailhookWasNotDefined</code></>, "E-posta gönderilemiyor"],
 				]} />
 			<Callout>
 				bilinmeyen bir e-posta adresi <code>404</code> döner. Hangi adreslerin hesabı olduğunu açığa vurmamak için iki durumda da kişiye aynı mesajı gösterin (&quot;Böyle bir hesap varsa size bir e-posta gönderdik&quot;).
@@ -282,7 +284,7 @@ export default function AccountRecovery() {
 			</p>
 			<Code language="http" code={samples.verifyOtp} />
 			<p>
-				Token gerekmez. <code>X-Host</code>, membership&apos;in <code>otp_settings.host</code> değerine eşit olmalıdır. Kodlar büyük/küçük harf ayrımı yapılmadan karşılaştırılır.
+				Token gerekmez. <code>X-Host</code>, membership&apos;in <code>otp_settings.host</code> değerine eşit olmalıdır. Kodlar büyük/küçük harf ayrımı yapılmadan karşılaştırılır. Kullanıcı, girişte olduğu gibi <strong>güncel</strong> username&apos;i ya da e-posta adresiyle bulunur (büyük/küçük harf ve baştaki/sondaki boşluklar dikkate alınmaz): Ad değişikliğinden önce üretilmiş bir kod eski adla değil, yeni adla doğrulanır.
 			</p>
 			<p>
 				<strong>Yanıt <code>200 OK</code></strong>: şu anda üretilen bir sıfırlama token&apos;ı. Geçerlilik süresi (<code>expires_in</code>) bu andan itibaren başlar.

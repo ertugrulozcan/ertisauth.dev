@@ -99,7 +99,7 @@ export default function Authentication() {
 				]} />
 			<Code language="json" code={samples.signInBody} />
 			<p>
-				<code>username</code> accepts either the username or the email address.
+				<code>username</code> accepts either the username or the email address. Case and surrounding white space are ignored.
 			</p>
 			<p>
 				<strong>Response <code>201 Created</code></strong>

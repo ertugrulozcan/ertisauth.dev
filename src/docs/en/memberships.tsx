@@ -66,7 +66,7 @@ export default function Memberships() {
 				rows={[
 					[<code>SmtpServer</code>, <><code>name</code>, <code>slug</code>, <code>host</code>, <code>port</code>, <code>tls_enabled</code>, <code>username</code>, <code>password</code></>, "ErtisAuth renders the HTML and sends it over SMTP"],
 					[<code>SendGrid</code>, <><code>name</code>, <code>slug</code>, <code>apiKey</code></>, "ErtisAuth renders the HTML and sends it with the SendGrid API"],
-					[<code>MailChimp</code>, <><code>name</code>, <code>slug</code>, <code>apiKey</code></>, <>A template stored in Mailchimp Transactional (Mandrill) is sent; see <DocLink to="mail-hooks" hash="mailchimp-templates">Mail Hooks</DocLink></>],
+					[<code>MailChimp</code>, <><code>name</code>, <code>slug</code>, <code>apiKey</code></>, <>A template stored in Mailchimp Transactional (Mandrill) is sent; see <DocLink to="mail-hooks" hash="mailchimp-templates">Mailhooks</DocLink></>],
 				]} />
 			<Code language="json" code={samples.mailProviders} />
 			<p>

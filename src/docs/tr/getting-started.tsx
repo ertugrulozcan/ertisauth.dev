@@ -295,7 +295,7 @@ export default function GettingStarted() {
 					Kullanıcılarınız için <DocLink to="roles">Roller</DocLink> sayfasında roller oluşturun ve <DocLink to="authorization">yetki modelini</DocLink> öğrenin.
 				</li>
 				<li>
-					Aktivasyon ve şifre sıfırlama e-postalarını <DocLink to="mail-hooks">Mail Hook&apos;lar</DocLink> ve <DocLink to="account-recovery">Hesap Kurtarma</DocLink> ile yapılandırın.
+					Aktivasyon ve şifre sıfırlama e-postalarını <DocLink to="mail-hooks">Mailhook&apos;lar</DocLink> ve <DocLink to="account-recovery">Hesap Kurtarma</DocLink> ile yapılandırın.
 				</li>
 				<li>
 					Kendi servislerinizi <DocLink to="sdk">.NET SDK</DocLink> ile koruyun.

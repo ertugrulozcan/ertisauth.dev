@@ -71,7 +71,7 @@ export default function AccountRecovery() {
 				</li>
 				<li>
 					Create a <DocLink to="mail-hooks">mail hook</DocLink> named exactly <strong><code>User Activation</code></strong>, for the event <strong><code>UserCreated</code></strong>, with status <code>active</code>. Use <code>{"{{activationLink}}"}</code> in its template:
-					<Code language="json" code={samples.activationMailHook} />
+					<Code language="json" code={samples.activationMailhook} />
 					The template receives <code>user</code> (the new user) and <code>activationLink</code>.
 				</li>
 				<li>
@@ -79,7 +79,7 @@ export default function AccountRecovery() {
 				</li>
 			</ol>
 			<p>
-				Without a mail provider or the activation mail hook, creating users fails with <code>501 NotDefinedAnyMailProvider</code> or <code>501 ActivationMailHookWasNotDefined</code>, before anything is created.
+				Without a mail provider or the activation mail hook, creating users fails with <code>501 NotDefinedAnyMailProvider</code> or <code>501 ActivationMailhookWasNotDefined</code>, before anything is created.
 			</p>
 
 			<H3 id="flow">
@@ -124,7 +124,7 @@ export default function AccountRecovery() {
 					[<><code>400 HostRequired</code>, <code>400 EmailAddressRequired</code></>, "A required value is missing"],
 					[<code>400 UserAlreadyActive</code>, "Nothing to activate"],
 					[<code>404 UserNotFound</code>, "No user with this email address"],
-					[<><code>501 NotDefinedAnyMailProvider</code>, <code>501 ActivationMailHookWasNotDefined</code></>, "Mails can't be sent"],
+					[<><code>501 NotDefinedAnyMailProvider</code>, <code>501 ActivationMailhookWasNotDefined</code></>, "Mails can't be sent"],
 				]} />
 
 			<H3 id="activating-without-a-mail">
@@ -147,7 +147,7 @@ export default function AccountRecovery() {
 				</li>
 				<li>
 					Create a <DocLink to="mail-hooks">mail hook</DocLink> named exactly <strong><code>Reset Password</code></strong>, for the event <strong><code>UserPasswordReset</code></strong>, with status <code>active</code>. Use <code>{"{{resetPasswordLink}}"}</code> in its template:
-					<Code language="json" code={samples.resetMailHook} />
+					<Code language="json" code={samples.resetMailhook} />
 					The template receives <code>user</code> and <code>resetPasswordLink</code>.
 				</li>
 				<li>
@@ -175,7 +175,7 @@ export default function AccountRecovery() {
 					[<><code>400 HostRequired</code>, <code>400 EmailAddressRequired</code></>, "A required value is missing"],
 					[<code>401 UserInactive</code>, "The account is inactive or frozen: it can't be recovered this way"],
 					[<code>404 UserNotFound</code>, "No user with this email address"],
-					[<><code>501 NotDefinedAnyMailProvider</code>, <code>501 ResetPasswordMailHookWasNotDefined</code></>, "Mails can't be sent"],
+					[<><code>501 NotDefinedAnyMailProvider</code>, <code>501 ResetPasswordMailhookWasNotDefined</code></>, "Mails can't be sent"],
 				]} />
 			<Callout>
 				an unknown email address answers <code>404</code>. To avoid revealing which addresses have accounts, show the same message to the person in both cases (&quot;If an account exists, we sent you an email&quot;).
@@ -282,7 +282,7 @@ export default function AccountRecovery() {
 			</p>
 			<Code language="http" code={samples.verifyOtp} />
 			<p>
-				No token is needed. <code>X-Host</code> must equal the membership&apos;s <code>otp_settings.host</code>. Codes are compared case-insensitively.
+				No token is needed. <code>X-Host</code> must equal the membership&apos;s <code>otp_settings.host</code>. Codes are compared case-insensitively. The user is looked up by their <strong>current</strong> username or email address, like at sign-in (case and surrounding white space are ignored): a code generated before a rename is verified with the new name, not the former one.
 			</p>
 			<p>
 				<strong>Response <code>200 OK</code></strong>: a reset token, generated now. Its lifetime (<code>expires_in</code>) starts at this moment.

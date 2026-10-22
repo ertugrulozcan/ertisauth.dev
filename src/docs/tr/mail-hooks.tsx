@@ -1,7 +1,7 @@
 import * as samples from "../samples/mail-hooks"
 import { Code, DocLink, H2, H3, Table } from "@/components/docs/prose"
 
-export default function MailHooks() {
+export default function Mailhooks() {
 	return (
 		<>
 			<p>
@@ -21,7 +21,7 @@ export default function MailHooks() {
 			<H2 id="the-mail-hook-object">
 				Mail hook nesnesi
 			</H2>
-			<Code language="json" code={samples.mailHook} />
+			<Code language="json" code={samples.mailhook} />
 			<Table
 				head={["Alan", "Zorunlu", "Açıklama"]}
 				rows={[
@@ -139,7 +139,7 @@ export default function MailHooks() {
 					[<code>DELETE</code>, <code>/mailhooks</code>, "Birden fazla mail hook silme", <code>mailhooks.delete</code>],
 				]} />
 			<p>
-				<strong>Oluşturma</strong> <code>201 Created</code> döner; ad, mail sağlayıcısı, durum (<code>active</code> / <code>passive</code>) ya da olay tipi eksik veya geçersizse <code>400 ModelValidationError</code>, slug kullanımdaysa <code>409 MailHookAlreadyExists</code>. <strong>Güncelleme</strong> mail hook&apos;u tamamen değiştirir; hiçbir değişiklik içermeyen bir güncelleme <code>409 IdenticalDocumentError</code> döner. <strong>Silme</strong> <code>204 No Content</code> döner.
+				<strong>Oluşturma</strong> <code>201 Created</code> döner; ad, mail sağlayıcısı, durum (<code>active</code> / <code>passive</code>) ya da olay tipi eksik veya geçersizse <code>400 ModelValidationError</code>, slug kullanımdaysa <code>409 MailhookAlreadyExists</code>. <strong>Güncelleme</strong> mail hook&apos;u tamamen değiştirir; hiçbir değişiklik içermeyen bir güncelleme <code>409 IdenticalDocumentError</code> döner. <strong>Silme</strong> <code>204 No Content</code> döner.
 			</p>
 
 			<H2 id="events">

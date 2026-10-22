@@ -6,8 +6,9 @@ export const accountPagesRole = `{
 	"permissions": [ "users.read", "users.update", "users.create" ]
 }`
 
-export const activationMailHook = `{
+export const activationMailhook = `{
 	"name": "User Activation",
+	"slug": "user-activation",
 	"event": "UserCreated",
 	"status": "active",
 	"mailProvider": "company-smtp",
@@ -33,8 +34,9 @@ Content-Type: application/json
 
 export const resendActivationResponse = `{ "emailAddress": "ada@example.com" }`
 
-export const resetMailHook = `{
+export const resetMailhook = `{
 	"name": "Reset Password",
+	"slug": "reset-password",
 	"event": "UserPasswordReset",
 	"status": "active",
 	"mailProvider": "company-smtp",

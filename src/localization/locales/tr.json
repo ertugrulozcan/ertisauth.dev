@@ -381,7 +381,7 @@
 				"description": "Bir şey olduğunda endpoint'lerinizi çağırın."
 			},
 			"mail-hooks": {
-				"title": "Mail Hook'lar",
+				"title": "Mailhook'lar",
 				"description": "Olaylarda şablonlu e-postalar gönderin."
 			},
 			"error-codes": {

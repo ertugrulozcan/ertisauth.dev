@@ -236,7 +236,7 @@ export default function CoreConcepts() {
 				</li>
 			</ul>
 			<p>
-				See <DocLink to="events">Events</DocLink>, <DocLink to="webhooks">Webhooks</DocLink> and <DocLink to="mail-hooks">Mail Hooks</DocLink>.
+				See <DocLink to="events">Events</DocLink>, <DocLink to="webhooks">Webhooks</DocLink> and <DocLink to="mail-hooks">Mailhooks</DocLink>.
 			</p>
 
 			<H2 id="identifiers-and-slugs">

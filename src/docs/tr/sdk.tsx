@@ -299,7 +299,7 @@ export default function Sdk() {
 					[<code>IUserService</code>, <><code>GetAsync</code>, <code>QueryAsync</code>, <code>CreateAsync</code>, <code>UpdateAsync</code>, <code>DeleteAsync</code>, <code>BulkDeleteAsync</code>, <code>GetActiveTokensAsync</code>, <code>GetRevokedTokensAsync</code></>],
 					[<code>IPasswordService</code>, <><code>ChangePasswordAsync</code>, <code>ResetPasswordAsync</code>, <code>SetPasswordAsync</code></>],
 					[<code>IRoleService</code>, <>CRUD, <code>CheckPermissionAsync</code>, <code>CheckPermissionByRoleAsync</code></>],
-					[<><code>IApplicationService</code>, <code>IWebhookService</code>, <code>IMailHookService</code></>, "CRUD"],
+					[<><code>IApplicationService</code>, <code>IWebhookService</code>, <code>IMailhookService</code></>, "CRUD"],
 					[<code>IMembershipService</code>, <><code>GetMembershipAsync</code>, <code>GetMembershipsAsync</code>, <code>QueryMembershipsAsync</code>, <code>CreateMembershipAsync</code>, <code>UpdateMembershipAsync</code>, <code>DeleteMembershipAsync</code></>],
 					[<><code>IActiveTokensService</code>, <code>IRevokedTokensService</code></>, <><code>GetAsync</code>, <code>QueryAsync</code></>],
 				]} />

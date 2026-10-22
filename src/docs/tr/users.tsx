@@ -18,8 +18,8 @@ export default function Users() {
 			<Table
 				head={["Alan", "Açıklama"]}
 				rows={[
-					[<code>username</code>, "Zorunlu, membership içinde benzersiz. Girişte kullanılabilir."],
-					[<code>email_address</code>, "Zorunlu, geçerli bir e-posta adresi, membership içinde benzersiz. Girişte kullanılabilir."],
+					[<code>username</code>, "Zorunlu, membership içinde benzersiz. Girişte kullanılabildiği için başka bir kullanıcının e-posta adresi olamaz."],
+					[<code>email_address</code>, "Zorunlu, geçerli bir e-posta adresi, membership içinde benzersiz. Girişte kullanılabildiği için başka bir kullanıcının username'i olamaz."],
 					[<code>firstname</code>, "Zorunlu."],
 					[<code>lastname</code>, "İsteğe bağlı."],
 					[<code>role</code>, "Zorunlu. Var olan bir rolün slug'ı."],
@@ -104,10 +104,10 @@ export default function Users() {
 					Gövdedeki <code>is_active</code>, <code>source_provider</code> ve <code>connected_accounts</code> yok sayılır: membership <DocLink to="account-recovery" hash="account-activation">aktivasyon</DocLink> gerektiriyorsa kullanıcı pasif oluşturulur ve aktivasyon maili <code>X-Host</code>&apos;taki link adresiyle gönderilir; aksi halde kullanıcı hemen aktiftir.
 				</li>
 				<li>
-					<code>user_type</code> pratikte zorunludur: verilmezse yerleşik <code>base-user</code> tipi kullanılır, o da abstract&apos;tır (<code>400 InheritedTypeIsAbstract</code>).
+					<code>user_type</code> zorunludur (<code>400 UserTypeRequired</code>). Yerleşik <code>base-user</code> tipi abstract&apos;tır, bu yüzden hiçbir kullanıcı bu tipte olamaz (<code>400 InheritedTypeIsAbstract</code>).
 				</li>
 				<li>
-					<code>email_address</code> küçük harfe çevrilerek saklanır.
+					<code>username</code> ve <code>email_address</code> baştaki ve sondaki boşluklar kırpılıp küçük harfe çevrilerek (Unicode NFC) saklanır; yani <code>Ada</code> ile <code>ada</code> aynı username&apos;dir.
 				</li>
 			</ul>
 			<p>
@@ -117,16 +117,20 @@ export default function Users() {
 				Tekrarlanan bir username, e-posta adresi ya da başka bir <DocLink to="user-types" hash="unique-fields">benzersiz alan</DocLink>, alan hatası olarak bildirilir:
 			</p>
 			<Code language="json" code={samples.duplicateError} />
+			<p>
+				Başka bir kullanıcının e-posta adresi olan bir username ya da başka bir kullanıcının username&apos;i olan bir e-posta adresi de aynı şekilde, <code>The &apos;username&apos; field can not be the email_address of another user.</code> (veya <code>The &apos;email_address&apos; field can not be the username of another user.</code>) mesajıyla bildirilir. Bir kullanıcının username&apos;i kendi e-posta adresi olabilir.
+			</p>
 			<Table
 				head={["Hata", "Ne zaman"]}
 				rows={[
 					[<><code>400 PasswordRequired</code>, <code>400 PasswordMinLengthRuleError</code></>, "Parola eksik ya da çok kısa"],
 					[<code>400 RoleRequired</code>, <><code>role</code> eksik</>],
+					[<code>400 UserTypeRequired</code>, <><code>user_type</code> eksik</>],
 					[<><code>400 FieldValidationException</code>, <code>400 ValidationException</code></>, "Bir alan kullanıcı tipi şemasına uymuyor"],
-					[<code>400 ValidationException</code>, "Username, e-posta adresi ya da başka bir benzersiz alan başka bir kullanıcı tarafından kullanılıyor (yukarıya bakın)"],
+					[<code>400 ValidationException</code>, "Username, e-posta adresi ya da başka bir benzersiz alan başka bir kullanıcı tarafından kullanılıyor ya da username başka bir kullanıcının e-posta adresi (veya tersi) (yukarıya bakın)"],
 					[<><code>404 RoleNotFound</code>, <code>404 UserTypeNotFound</code></>, "Bilinmeyen rol ya da kullanıcı tipi"],
 					[<code>409 UbacsConflicted</code>, <>Aynı girdi hem <code>permissions</code> hem <code>forbidden</code> içinde</>],
-					[<><code>501 NotDefinedAnyMailProvider</code>, <code>501 ActivationMailHookWasNotDefined</code></>, "Aktivasyon gerekli ama mail gönderilemiyor"],
+					[<><code>501 NotDefinedAnyMailProvider</code>, <code>501 ActivationMailhookWasNotDefined</code></>, "Aktivasyon gerekli ama mail gönderilemiyor"],
 				]} />
 
 			<H3 id="update-a-user">

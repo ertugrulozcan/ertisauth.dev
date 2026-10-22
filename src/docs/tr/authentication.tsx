@@ -99,7 +99,7 @@ export default function Authentication() {
 				]} />
 			<Code language="json" code={samples.signInBody} />
 			<p>
-				<code>username</code> alanı username&apos;i de e-posta adresini de kabul eder.
+				<code>username</code> alanı username&apos;i de e-posta adresini de kabul eder. Büyük/küçük harf ve baştaki/sondaki boşluklar dikkate alınmaz.
 			</p>
 			<p>
 				<strong>Yanıt <code>201 Created</code></strong>

@@ -381,7 +381,7 @@
 				"description": "Call your endpoints when something happens."
 			},
 			"mail-hooks": {
-				"title": "Mail Hooks",
+				"title": "Mailhooks",
 				"description": "Send templated emails on events."
 			},
 			"error-codes": {

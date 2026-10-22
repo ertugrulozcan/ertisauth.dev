@@ -109,7 +109,7 @@ export default function ErrorCodes() {
 					[<code>RoleRequired</code>, "400", ""],
 					[<code>UserAlreadyActive</code>, "400", ""],
 					[<code>UserAlreadyInactive</code>, "400", ""],
-					[<code>UserTypeRequired</code>, "400", ""],
+					[<code>UserTypeRequired</code>, "400", <>Kullanıcı oluşturulurken <code>user_type</code> eksik</>],
 					[<code>UserTypeImmutable</code>, "400", "Bir kullanıcının tipi değiştirilemez"],
 					[<code>HostRequired</code>, "400", <><code>X-Host</code> eksik</>],
 					[<code>ResetTokenRequired</code>, "400", ""],
@@ -134,6 +134,7 @@ export default function ErrorCodes() {
 					[<code>ReservedUserTypeSlug</code>, "409", <><code>base-user</code> ayrılmıştır</>],
 					[<code>UniqueFieldHasDuplicates</code>, "409", "Benzersiz yapılan bir alanda mevcut kullanıcılar aynı değeri paylaşıyor"],
 					[<code>UserTypeCanNotBeDelete</code>, "400", "Tipin hâlâ kullanıcıları ya da türetilmiş tipleri var"],
+					[<code>UserTypeInUse</code>, "409", "Hâlâ kullanıcıları ya da türetilmiş tipleri olan bir tipin slug'ı değiştirilemez"],
 				]} />
 
 			<H2 id="roles-and-applications">
@@ -213,11 +214,11 @@ export default function ErrorCodes() {
 				rows={[
 					[<code>WebhookNotFound</code>, "404", ""],
 					[<code>WebhookAlreadyExists</code>, "409", "Slug kullanımda"],
-					[<code>MailHookNotFound</code>, "404", ""],
-					[<code>MailHookAlreadyExists</code>, "409", "Slug kullanımda"],
+					[<code>MailhookNotFound</code>, "404", ""],
+					[<code>MailhookAlreadyExists</code>, "409", "Slug kullanımda"],
 					[<code>NotDefinedAnyMailProvider</code>, "501", "Membership'in mail sağlayıcısı yok"],
-					[<code>ActivationMailHookWasNotDefined</code>, "501", <>Aktif bir <code>User Activation</code> mail hook&apos;u yok</>],
-					[<code>ResetPasswordMailHookWasNotDefined</code>, "501", <>Aktif bir <code>Reset Password</code> mail hook&apos;u yok</>],
+					[<code>ActivationMailhookWasNotDefined</code>, "501", <>Aktif bir <code>User Activation</code> mail hook&apos;u yok</>],
+					[<code>ResetPasswordMailhookWasNotDefined</code>, "501", <>Aktif bir <code>Reset Password</code> mail hook&apos;u yok</>],
 					[<code>EventNotFound</code>, "404", ""],
 					[<code>ActiveTokenNotFound</code>, "404", ""],
 				]} />

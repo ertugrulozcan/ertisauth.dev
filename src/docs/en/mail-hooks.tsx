@@ -1,7 +1,7 @@
 import * as samples from "../samples/mail-hooks"
 import { Code, DocLink, H2, H3, Table } from "@/components/docs/prose"
 
-export default function MailHooks() {
+export default function Mailhooks() {
 	return (
 		<>
 			<p>
@@ -21,7 +21,7 @@ export default function MailHooks() {
 			<H2 id="the-mail-hook-object">
 				The mail hook object
 			</H2>
-			<Code language="json" code={samples.mailHook} />
+			<Code language="json" code={samples.mailhook} />
 			<Table
 				head={["Field", "Required", "Description"]}
 				rows={[
@@ -139,7 +139,7 @@ export default function MailHooks() {
 					[<code>DELETE</code>, <code>/mailhooks</code>, "Delete several mail hooks", <code>mailhooks.delete</code>],
 				]} />
 			<p>
-				<strong>Create</strong> answers <code>201 Created</code>; <code>400 ModelValidationError</code> when the name, the mail provider, the status (<code>active</code> / <code>passive</code>) or the event type is missing or invalid, and <code>409 MailHookAlreadyExists</code> when the slug is taken. <strong>Update</strong> replaces the mail hook; an update without any change answers <code>409 IdenticalDocumentError</code>. <strong>Delete</strong> answers <code>204 No Content</code>.
+				<strong>Create</strong> answers <code>201 Created</code>; <code>400 ModelValidationError</code> when the name, the mail provider, the status (<code>active</code> / <code>passive</code>) or the event type is missing or invalid, and <code>409 MailhookAlreadyExists</code> when the slug is taken. <strong>Update</strong> replaces the mail hook; an update without any change answers <code>409 IdenticalDocumentError</code>. <strong>Delete</strong> answers <code>204 No Content</code>.
 			</p>
 
 			<H2 id="events">

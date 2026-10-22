@@ -77,6 +77,7 @@ MEANINGS_TR = {
 	"MembershipHashAlgorithmInvalid": "Saklanan bir membership'in geçerli bir hash algoritması yok",
 	"UnsupportedLanguage": "Bilinmeyen `default_language`",
 	"PasswordMinLengthRuleError": "Parola 6 karakterden kısa",
+	"UserTypeRequired": "Kullanıcı oluşturulurken `user_type` eksik",
 	"UserTypeImmutable": "Bir kullanıcının tipi değiştirilemez",
 	"HostRequired": "`X-Host` eksik",
 	"InvalidUtilizer": "Bir mail hook, e-posta adresi olmayan bir çağırana gönderilmek isteniyor",
@@ -89,6 +90,7 @@ MEANINGS_TR = {
 	"ReservedUserTypeSlug": "`base-user` ayrılmıştır",
 	"UniqueFieldHasDuplicates": "Benzersiz yapılan bir alanda mevcut kullanıcılar aynı değeri paylaşıyor",
 	"UserTypeCanNotBeDelete": "Tipin hâlâ kullanıcıları ya da türetilmiş tipleri var",
+	"UserTypeInUse": "Hâlâ kullanıcıları ya da türetilmiş tipleri olan bir tipin slug'ı değiştirilemez",
 	"RoleAlreadyExists": "Slug kullanımda",
 	"ReservedRole": "`admin` ayrılmıştır",
 	"SystemRolesCannotBeDeleted": "`admin` rolü silinemez",
@@ -120,10 +122,10 @@ MEANINGS_TR = {
 	"TokenCodeAlreadyAuthorized": "Kod zaten onaylandı ya da reddedildi",
 	"TokenCodeCouldNotBeGenerated": "Kullanılmamış bir kullanıcı kodu üretilemedi; yeniden deneyin",
 	"WebhookAlreadyExists": "Slug kullanımda",
-	"MailHookAlreadyExists": "Slug kullanımda",
+	"MailhookAlreadyExists": "Slug kullanımda",
 	"NotDefinedAnyMailProvider": "Membership'in mail sağlayıcısı yok",
-	"ActivationMailHookWasNotDefined": "Aktif bir `User Activation` mail hook'u yok",
-	"ResetPasswordMailHookWasNotDefined": "Aktif bir `Reset Password` mail hook'u yok",
+	"ActivationMailhookWasNotDefined": "Aktif bir `User Activation` mail hook'u yok",
+	"ResetPasswordMailhookWasNotDefined": "Aktif bir `Reset Password` mail hook'u yok",
 }
 
 def slug(title):
