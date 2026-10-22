@@ -70,7 +70,7 @@ export default function AccountRecovery() {
 					Membership&apos;e bir mail sağlayıcısı ekleyin (<code>mail_providers</code>; bkz. <DocLink to="memberships" hash="mail-providers">Membership&apos;ler</DocLink>).
 				</li>
 				<li>
-					Slug'ı <strong><code>user-activation</code></strong> olan, <strong><code>UserCreated</code></strong> event'ine bağlı bir <DocLink to="mail-hooks">mail hook</DocLink> oluşturun ve <code>active</code> hale getirin. 
+					Slug&apos;ı <strong><code>user-activation</code></strong> olan, <strong><code>UserCreated</code></strong> event&apos;ine bağlı bir <DocLink to="mail-hooks">mail hook</DocLink> oluşturun ve <code>active</code> hale getirin. 
 					Mail şablonunda aktivasyon linkini yerleştirmek istediğiniz yere <code>{"{{activationLink}}"}</code> ekleyin:
 					<Code language="json" code={samples.activationMailhook} />
 					Şablon <code>user</code> (yeni kullanıcı) ve <code>activationLink</code> değerlerini alır.
@@ -147,7 +147,7 @@ export default function AccountRecovery() {
 					Membership&apos;e bir mail sağlayıcısı ekleyin.
 				</li>
 				<li>
-					Slug'ı <strong><code>reset-password</code></strong> olan, <strong><code>UserPasswordReset</code></strong> event'ine bağlı bir <DocLink to="mail-hooks">mail hook</DocLink> oluşturun ve <code>active</code> hale getirin. 
+					Slug&apos;ı <strong><code>reset-password</code></strong> olan, <strong><code>UserPasswordReset</code></strong> event&apos;ine bağlı bir <DocLink to="mail-hooks">mail hook</DocLink> oluşturun ve <code>active</code> hale getirin. 
 					Mail şablonunda parola sıfırlama bağlantısını yerleştirmek istediğiniz yere <code>{"{{resetPasswordLink}}"}</code> ekleyin:
 					<Code language="json" code={samples.resetMailhook} />
 					Şablon <code>user</code> ve <code>resetPasswordLink</code> değerlerini alır.
